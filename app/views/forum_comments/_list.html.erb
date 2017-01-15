@@ -1,0 +1,72 @@
+<div class="tab-pane active">
+
+  <ul>
+
+
+    
+
+
+  <% if @forum_comments.count == 0 %>
+    <p class="text-center">No comments yet. Leave your message first.</p>
+  <% else %>
+
+  
+
+  <% @forum_comments.order("id asc").each do |f| %>
+
+   <li>
+
+    <h4><%= f.user.first_name + " " + f.user.last_name %></h4><p style="display: inline-block; float: right;"><%= f.created_at.strftime("%v").downcase %></p>
+
+    <p><%= f.body %></p>
+
+    </li>
+
+    <% if current_user && current_user.admin %>
+      <%= link_to "Remove comment", [@forum, @forum_thread, f], method: :delete, data: {confirm: "Are you sure?"} if current_user && current_user == f.user %>
+    <% elsif current_user && f.user_id == current_user.id %>
+      <%= link_to "Remove my comment", [@forum, @forum_thread, f], method: :delete, data: {confirm: "Are you sure?"} if current_user && current_user == f.user %>
+    <% end %>
+
+
+  <% end %>
+  <% end %>
+
+
+
+<div class="text-center">
+  <%= will_paginate @forum_comments %>
+</div>
+
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+
+     
+
+        
+
+          
+
+        
+
+
+
+
+      
+
+
+
+
+		
+					
+			

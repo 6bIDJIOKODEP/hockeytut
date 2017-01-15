@@ -1,0 +1,110 @@
+<section id="main" class="clearfix about-us page">
+		<div class="container">
+			<div class="breadcrumb-section">								
+				<h2 class="title">Advertisement</h2>	
+			</div><!-- banner -->
+			<div class="section about">
+				<div class="about-info">
+					<div class="row">						
+						<!-- about-text -->
+						<div class="col-md-12">
+							<div class="about-text">
+								<h3>Общая информация</h3></br>
+								<!-- description-paragraph -->
+								<div class="description-paragraph">
+									<p>
+1.На сайте hockeytut.com можно разметить два типа баннеров: </br>
+              а) С ротацией - Ваш баннер (рекламный материал) будет показываться на рекламном месте чередуясь с другими баннерами, во время обновления страницы. </br>
+              б) Статический (без ротации) - Ваш баннер (рекламный материал) будет показываться на рекламном месте, без смены на другой баннер.</br>
+
+2.Цены указанны на размещения баннера на ОДИН МЕСЯЦ.</br>
+
+3.Цены указаны на размещения только на русскоязычной версии сайта.</br>
+
+4.Цены на размещения на англоязычной версии сайта, оговариваются отдельно.</br>
+
+5.Сайт hockeytut.com- не ведет и не устанавливает статистические метки, программы и плагины на баннеры, т.к. это ведет к затруднениям загрузки данных.</br>
+
+6.Сайт hockeytut.com разделен на две категории, цены указанны на размещение в одной категории. При заключении договора уточняйте категорию: </br>
+             а) ТУРНИРЫ </br>
+             б) КЕМПЫ</br>
+
+<h3>Требования к баннеру</h3></br>
+1.Размер баннера не должен превышать 60 кб.</br>
+
+2.Не размещаются : </br>
+              а) Яркие, раздражающие глаза дизайн баннеров, а также мелькающие баннеры ,кнопки, слоганы, картинки ; </br>
+              б) Баннеры конкурентов hockeytut.com ; </br>
+              в) Другие баннеры, которые администрация сайта hockeytut.com сочтет непригодными для публикации на сайте</br>
+
+<h3>Стоимость (месяц)</h3></br>
+
+
+<h3>Контакты и оплата</h3></br>
+1.Hockeytut.com размещает баннеры только посредству заключения договора-оферты на предоставление и оказание рекламных услуг.</br>
+
+2.Выставление и последующая оплата счета считается заключением договора и согласие с условиями hockeytut.com.</br>
+
+3.Оплата производится только после выставления счета оплаты Заказчику.</br>
+
+4.Оплата производится посредству перевода суммы на карту Исполнителя.</br>
+
+5.После подтверждения перевода суммы, Заказчику будут предоставлены сроки рекламной кампании.</br>
+
+6.С предложениями и вопросами, а также для заказа рекламных услуг - support@hockeytut.com</p>
+
+						</div><!-- about-text -->
+					</div>
+				</div><!-- about-info -->	
+			</div><!-- about -->
+
+
+			<div class="corporate-info">
+				<div class="row">
+
+
+
+
+
+					<!-- feedback -->
+					<div class="col-sm-12">
+						<div class="feedback">
+							<h2>Send Us Your Proposal</h2>
+							<%= form_for @contact do |f| %>
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="form-group">
+											<%= f.text_field :name, :required => true, placeholder: 'Name', class: 'form-control' %>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<%= f.text_field :email, :required => true, placeholder: 'Email', class: 'form-control' %> 
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<%= f.text_area :message, :as => :text, :required => true, placeholder: 'Your Message', class: 'form-control', rows: '10' %>
+										</div> 
+									</div> 
+    
+								</div>
+								<div class="form-group">
+									<button type="submit" class="btn">Submit Message</button>
+								</div>
+							
+								<% end %>
+
+						</div>				
+					</div><!-- feedback -->	
+
+
+
+				</div><!-- row -->
+			</div>
+
+
+
+			
+		</div><!-- container -->
+	</section><!-- main -->

@@ -1,0 +1,266 @@
+<div class="adpost-details">
+  <div class="row"> 
+    <div class="col-md-8">
+
+      <%= form_for tournament, html: { multipart: true } do |f| %>
+
+        <% if tournament.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(tournament.errors.count, "error") %> prohibited this tournament from being saved:</h2>
+            <ul>
+            <% tournament.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+          <div class="section postdetails">
+            <h4>Main info<span class="pull-right">* Required field</span></h4>
+            <div class="row form-group">
+              <label class="col-sm-3">Type<span class="required">*</span></label>
+              <div class="col-sm-9 user-type">
+
+              <%= f.radio_button :tournament_type, "tournament" %> <label for="tournament_tournament_type_tournament">Tournament </label>
+              <%= f.radio_button :tournament_type, "camp" %> <label for="tournament_tournament_type_camp">Camp</label>
+
+
+              </div>
+            </div>
+
+
+
+            <div class="row form-group select-price">
+
+
+            <div id="category_tournament">
+                <label class="col-sm-3 label-title">Category<span class="required">*</span></label>
+                <div class="col-sm-3">
+
+                  <%= f.select(:category, [["98-99", "98-99"], ["2000", "2000"], ["2001", "2001"], ["2002", "2002"], 
+                    ["2003", "2003"], ["2004", "2004"], ["2005", "2005"], ["2006", "2006"], ["2007", "2007"], 
+                    ["2008", "2008"], ["2009", "2009"], ["2010", "2010"], ["U-18", "U-18"], ["U-20", "U-20"],
+                    ["Women", "Women"], ["Amateur", "Amateur"], ["Professional", "Professional"], ["Other", "Other"]],
+                    { prompt: 'Select..' }, { class: "form-control" }) %>
+
+                </div>
+              </div>
+
+              <div id="category_camp">
+                <label class="col-sm-3 label-title">Category<span class="required">*</span></label>
+                <div class="col-sm-3">
+
+                  <%= f.select(:category_camp, [["Players", "Players"], ["Goalkeepers", "Goalkeepers"], ["All", "All"]],
+                      { prompt: 'Select..' }, { class: "form-control" }) %>
+                  
+                </div>   
+
+              </div>
+
+            </div>
+
+
+
+
+
+            <div class="row form-group add-title">
+              <label class="col-sm-3 label-title">Title<span class="required">*</span></label>
+              <div class="col-sm-9">
+                <%= f.text_field :name, class: "form-control", id: "text", placeholder: "Title.." %>
+              </div>
+            </div>
+
+            <div class="row form-group">
+              <label class="col-sm-3 label-title">Description<span class="required">*</span></label>
+              <div class="col-sm-9">
+                <%= f.text_area :description, rows: 10, class: "form-control", placeholder: "Description.." %>
+              </div>
+            </div> 
+
+            <div class="row form-group">
+              <label class="col-sm-3 label-title">Location<span class="required">*</span></label>
+              <div class="col-sm-9">
+                <%= f.text_field :address, class: "form-control geocomplete", placeholder: "Location.." %>
+              </div>
+            </div>
+
+
+
+
+
+
+            <div class="row form-group select-price">
+
+              <label class="col-sm-3 label-title">Currency<span class="required">*</span></label>
+              <div class="col-sm-3">
+
+                <%= f.select(:currency, [["USD", "USD"], ["EUR", "EUR"], ["RUB", "RUB"], ["BYN", "BYN"]],
+                    { prompt: 'Select..' }, { class: "form-control" }) %>
+
+              </div>
+              <div class="team-relational">
+                <label class="col-sm-3 label-title">Team q-ty<span class="required">*</span></label>
+                <div class="col-sm-3">
+
+                  <%= f.number_field :teams_qty, class: "form-control" %>
+
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div class="row form-group select-price">
+
+              <label class="col-sm-3 label-title">Price for player<span class="required">*</span></label>
+              <div class="col-sm-3">
+                <%= f.number_field :player_price, class: "form-control" %>
+              </div>
+
+            <div class="team-relational">
+              <label class="col-sm-3 label-title">Price for team<span class="required">*</span></label>
+              <div class="col-sm-3">
+                <%= f.number_field :team_price, class: "form-control" %>
+              </div>
+            </div>
+            </div>
+
+
+            <div class="row form-group">
+              <label class="col-sm-3 label-title">Start Date<span class="required">*</span></label>
+              <div class="col-sm-9">
+                <%= f.date_select :start_date, {:order => [:day, :month, :year], :start_year => 2016, :end_year => 2029}, class: "date-control" %>
+              </div>
+            </div>
+
+            <div class="row form-group">
+              <label class="col-sm-3 label-title">End Date<span class="required">*</span></label>
+              <div class="col-sm-9">
+                <%= f.date_select :end_date, {:order => [:day, :month, :year], :start_year => 2016, :end_year => 2029}, class: "date-control" %>
+              </div>
+            </div>
+
+
+
+          
+
+
+
+          </div><!-- section -->
+
+
+
+
+          
+          <div class="section seller-info">
+            <h4>Additional</h4>
+            <div class="row form-group">
+              <label class="col-sm-3 label-title">Phone<span class="required">*</span></label>
+              <div class="col-sm-9">
+                <%= f.text_field :phone_number, class: "form-control", placeholder: "Contact phone.." %>
+              </div>
+            </div>
+            <div class="row form-group">
+              <label class="col-sm-3 label-title">Email<span class="required">*</span></label>
+              <div class="col-sm-9">
+                <%= f.text_field :contact_email, class: "form-control", placeholder: "Your Email.." %>
+              </div>
+            </div>
+
+            <div class="row form-group">
+              <label class="col-sm-3 label-title">Club</label>
+              <div class="col-sm-9">
+                <%= f.text_field :club, class: "form-control", placeholder: "Your club.." %>
+              </div>
+            </div>
+            <div class="row form-group">
+              <label class="col-sm-3 label-title">Website</label>
+              <div class="col-sm-9">
+                <%= f.text_field :website, class: "form-control", placeholder: "Your website.." %>
+              </div>
+            </div>
+            <div class="row form-group additional">
+              <label class="col-sm-3 label-title">Extra<span class="required">*</span></label>
+              <div class="col-sm-9">
+                <div class="checkbox">
+
+                  <label for="camera"><%= f.check_box :inhabitancy, id: "camera" %> Inhabitancy</label>
+                  <label for="dual-sim"><%= f.check_box :food, id: "dual-sim" %> Food</label>
+                  <label for="keyboard"><%= f.check_box :transfer, id: "keyboard" %> Transfer</label>
+                  <label for="3g"><%= f.check_box :entertainment, id: "3g" %> Entertainment</label>
+                  <label for="gsm"><%= f.check_box :others, id: "gsm" %> Other</label>
+                </div>
+              </div>              
+            </div>
+
+
+            <div class="row form-group">
+              <h5>Photos</h5>
+              <%= file_field_tag "images[]", accept: 'image/png,image/gif,image/jpeg,image/JPG', multiple: true, class: "" %>
+            </div>
+            <div class="row form-group">
+              <h5>Files</h5>
+              <%= file_field_tag "papers[]", accept: 'a.xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf', multiple: true, class: "" %>
+            </div>
+
+
+            <div class="row">
+              <div class="col-sm-12">
+                <button type="submit" class="btn btn-primary full-width">Submit tournament!</button>
+              </div>
+            </div>
+          </div><!-- section -->
+
+
+      <% end %>
+
+    </div>
+
+
+
+  
+
+    <!-- quick-rules -->  
+    <div class="col-md-4">
+      <div class="section quick-rules">
+        <h4>Rules</h4>
+        <p class="lead">You can post tournaments for free, but you should obey some rules:</p>
+
+        <ul>
+          <li>some rulessome rulessome rulessome rulessome rulessome rulessome rulessome rules</li>
+          <li>Dsome rulessome rulessome rulessome rulessome rulessome rulessome rulessome rulessome rulessome rulessome rules</li>
+          <li>Dsome rulessome rulessome rulessome rulessome rulessome rulessome rules.</li>
+          <li>Dsome rulessome rulessome rulessome rulessome rulessome rulessome rules.</li>
+          <li>Dsome rulessome rulessome rulessome rulessome rulessome rulessome rules.</li>
+          <li>Dsome rulessome rulessome rulessome rulessome rulessome rulessome rules.</li>
+          <li>Dsome rulessome rulessome rulessome rulessome rulessome rulessome rules.</li>
+        </ul>
+      </div>
+    </div><!-- quick-rules -->  
+  </div><!-- photos-ad -->        
+</div>  
+
+<script>
+
+$(document).ready(function(){
+    $('input[type="radio"]').click(function(){
+        if($(this).attr("value")=="tournament"){
+            $("#category_camp").hide();
+            $("#category_tournament").show();
+            $(".team-relational").show();
+        }
+        if($(this).attr("value")=="camp"){
+            $("#category_tournament").hide();
+            $("#category_camp").show();
+            $(".team-relational").hide();
+        }
+    });
+
+
+});
+
+
+
+
+</script>

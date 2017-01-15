@@ -1,0 +1,218 @@
+  <!-- main -->
+  <section id="main" class="clearfix details-page">
+    <div class="container">
+      <div class="section slider">          
+        <div class="row">
+          <!-- carousel -->
+          <div class="col-md-7">
+            <div class="my-slider">
+              <ul>
+                <% @photos.each do |photo| %>
+                  <li><img src="<%= photo.image.url %>" style='height: 500px; width: auto; object-fit: cover'></li>
+                <% end %>
+              </ul>
+            </div>            
+          </div><!-- Controls --> 
+
+          <!-- slider-text -->
+          <div class="col-md-5">
+            <div class="slider-text">
+              <h2><%= @tournament.tournament_type.capitalize %> / 
+
+              <% if @tournament.tournament_type == 'tournament' %>
+                <%= @tournament.category %>
+              <% else  %>
+                <%= @tournament.category_camp %>
+              <% end %>
+
+              </h2>
+
+              <h4 class="title"><%= @tournament.name.downcase.capitalize %></h4>
+              <span class="icon"><i class="fa fa-user"></i>Offered by: <%= @tournament.user.first_name + " " + @tournament.user.last_name %></span></br>
+              <span class="icon"><i class="fa fa-map-marker"></i><%= @tournament.address %></span></br>
+              <span class="icon"><i class="fa fa-calendar"></i>From <%= @tournament.start_date.strftime('%d %B %Y') %> to</span>
+              <span class="icon"></i><%= @tournament.end_date.strftime('%d %B %Y') %></span>              
+              
+              <!-- short-info -->
+              <div class="short-info">
+                <h4>Short Info</h4>
+                <p><strong>Phone number: </strong><%= @tournament.phone_number %></p>
+                <p><strong>Contact email: </strong><%= @tournament.contact_email %></p>
+                <p><strong>Club: </strong><%= @tournament.club %></p>
+                <p><strong>Website: </strong><%= link_to "#{@tournament.website}", "http://#{@tournament.website}", target: "_blank" %></p>
+              </div><!-- short-info -->
+
+
+
+              
+              <div class="contact-with">
+                <span class="btn btn-red show-number">
+                  <i class="fa fa-file"></i>
+                  <span class="hide-text">Show attached files</span> 
+                  <span class="hide-number">
+
+              <% @documents.each do |document| %>
+              
+                <p><%= link_to "#{document.paper.original_filename}", document.paper.url(:original, false), class: "" %><i class="fa fa-download float-right"></i></br></p>
+              <% end  %>
+
+
+                  </span>
+                </span>
+                <a href="#jump" class="btn"><i class="fa fa-envelope-square"></i>Leave a review</a>
+              </div><!-- contact-with -->
+
+
+
+
+
+              <!-- social-links -->
+              <div class="social-links socials">
+              <div class="socials-share-buttons-container">
+                <h4>Share this with:</h4>
+                <ul class="list-inline">
+                </ul>
+              </div><!-- social-links --> 
+              </div>          
+            </div>
+          </div><!-- slider-text -->        
+        </div>        
+      </div><!-- slider -->
+
+      <div class="description-info">
+        <div class="row">
+          <!-- description -->
+          <div class="col-md-8">
+            <div class="description">
+              <h4>Description</h4>
+              <p><%= @tournament.description %></p><br>
+
+
+
+            </div>
+
+
+              <div id="gmap"></div>
+
+              <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAr_sjdwaZYAqB39ibFyhldV3sU-xC_-Lk&callback=initMap" async defer></script>     
+              <script>
+                function initMap() {
+                  // Create a map object and specify the DOM element for display.
+                  var map = new google.maps.Map(document.getElementById('gmap'), {
+                    center: {lat: <%= @tournament.latitude %>, lng: <%= @tournament.longitude %>},
+                    scrollwheel: false,
+                    zoom: 14
+                  });
+
+                  var marker = new google.maps.Marker({
+                      position: {lat: <%= @tournament.latitude %>, lng: <%= @tournament.longitude %>},
+                      map: map,
+                      title: ''
+                    });
+                }
+                google.maps.event.addDomListener(window, 'load', initMap);
+              </script>
+
+
+          </div><!-- description -->         
+
+
+
+
+
+
+
+          <!-- description-short-info -->
+          <div class="col-md-4">          
+            <div class="short-info">
+              <h4>Price</h4>
+              <!-- social-icon -->
+              <ul>
+                <li><i class="fa fa-money"></i>One Player: <%= @tournament.player_price if !@tournament.player_price.nil? %> <%= @tournament.currency %></li>
+                  <% if @tournament.tournament_type == "tournament" %>
+                    <li><i class="fa fa-money"></i>Team: <%= @tournament.team_price if !@tournament.team_price.nil? %> <%= @tournament.currency %></li>
+                  <% end %>
+              </ul><!-- social-icon -->
+              <h4>Included:</h4>
+              <!-- social-icon -->
+              <ul>
+
+              <% if @tournament.inhabitancy %>
+                <li><i class="fa fa-check green"></i>Inhabitancy</li>
+              <% else %>
+                <li><i class="fa fa-remove red"></i>Inhabitancy</li>
+              <% end %>
+
+              <% if @tournament.food %>
+                <li><i class="fa fa-check green"></i>Food</li>
+              <% else %>
+                <li><i class="fa fa-remove red"></i>Food</li>
+              <% end %>
+
+              <% if @tournament.transfer %>
+                <li><i class="fa fa-check green"></i>Transfer</li>
+              <% else %>
+                <li><i class="fa fa-remove red"></i>Transfer</li>
+              <% end %>
+
+              <% if @tournament.entertainment %>
+                <li><i class="fa fa-check green"></i>Entertainment</li>
+              <% else %>
+                <li><i class="fa fa-remove red"></i>Entertainment</li>
+              <% end %>
+
+              <% if @tournament.others %>
+                <li><i class="fa fa-check green"></i>Others</li>
+              <% else %>
+                <li><i class="fa fa-remove red"></i>Others</li>
+              <% end %>
+
+
+              </ul><!-- social-icon -->
+            </div>
+          </div>
+        </div><!-- row -->
+      </div><!-- description-info --> 
+
+
+      <a name="jump"></a>
+      <div class="row">
+          <!-- description -->
+          <div class="col-md-12">
+            <div class="description padding-4">
+              
+              
+
+              <%= render 'reviews/list' %>
+
+            <div class=" row text-center">  
+              <%= will_paginate @reviews %>
+            </div>
+
+            <% if !@left_review %>
+              <%= render 'reviews/form' %>
+            <% end %>
+
+            </div>
+
+
+
+          </div><!-- description -->
+      </div><!-- description-info --> 
+
+
+
+
+    </div><!-- container -->
+  </section><!-- main -->
+
+<script>
+
+    jQuery(document).ready(function($) {
+      $('.my-slider').unslider({
+        autoplay: true,
+        infinite: true
+        });
+    });
+
+</script>

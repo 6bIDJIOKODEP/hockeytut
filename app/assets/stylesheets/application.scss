@@ -1,0 +1,185 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require font-awesome
+ *= require jquery.fileupload
+ *= require jquery.fileupload-ui
+ *= require_tree .
+ *= require_self
+ */
+.unslider-arrow{
+  display: none;
+}
+.category-info .accordion button {
+  background-color: #131313;
+  color: #fff;
+}
+#footer li a:hover {
+  color: #fff;
+}
+
+ #notice_block {
+ 	position: absolute;
+ 	top: 0;
+ 	width: 100%;
+ 	z-index: 9999;
+ 	background: rgba(93, 128, 166, 0.8);
+ 	.alert, .notice {
+ 	padding: 4.5rem 0;
+ 	text-align: center;
+ 	margin: 0;
+ 	font-size: 1.35rem;
+ 	font-weight: 500;
+ 	color: #ffffff;
+ 	letter-spacing: 1px;
+ 	}
+ }
+
+#floatingSocialShare a {
+  padding: 0px 10px;
+  font-size: 18px;
+}
+#category_camp, #category_tournament {
+  display: none;
+}
+.user-images img {
+  width: 64px;
+}
+#accordion .panel-body select {
+  margin-bottom: 8px;
+}
+.m-l-4 {
+  margin-left: 40px;
+}
+.btn {
+  border-radius: 1px;
+}
+.green {
+  color: #99cc00;
+}
+.red {
+  color: #cc3333;
+}
+.full-width {
+  width: 100%;
+  margin: auto;
+}
+.contact-info i {
+  font-size: 24px;
+}
+.pac-item {
+  padding: 15px;
+}
+.pac-item-selected{
+  background-color: grey;
+}
+.date-control {
+  -webkit-box-shadow: none;
+  border: 1px solid #e3e3e3;
+  height: 44px;
+  color: #000;
+  display: inline-block;
+  width: 32%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+ }
+ .date-home-control {
+  margin-bottom: 20px;
+  -webkit-box-shadow: none;
+  border: 1px solid #f7f7f7;
+  height: 44px;
+  color: #000;
+  display: inline-block;
+  width: 32%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555555;
+  background-color: #fff;
+  background-image: none;
+  border-radius: 4px;
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+ }
+ .search-control {
+  margin-bottom: 20px;
+  -webkit-box-shadow: none;
+  border: 1px solid #f7f7f7;
+  color: #000;
+  display: inline-block;
+  width: 100%;
+  height: 44px;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 2.42857143;
+  color: #555555;
+  background-color: #fff;
+  background-image: none;
+  border-radius: 4px;
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+ }
+.bordered {
+  border-top: 1px solid #f2f2f2;
+}
+.reviews img {
+  max-width: 15px;
+}
+.forum_main_heading {
+	font-size: 16px;
+}
+.padding-s {
+  padding: 120px 90px;
+}
+.padding-4 {
+  padding: 50px;
+}
+.padding-1 {
+  padding: 10px;
+}
+.margin-01 {
+  margin: 10px 0px;
+}
+.pagination {
+	margin: auto;
+}
+.pagination a {
+  color: #9a9a9a;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: #e7e8e9;
+  margin: 3px;
+  border-radius: 5px;
+  padding: 6px 12px;
+}
+.pagination .current {
+	color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: #5d80a6;
+  margin: 3px;
+  border-radius: 5px;
+  padding: 6px 12px;
+}

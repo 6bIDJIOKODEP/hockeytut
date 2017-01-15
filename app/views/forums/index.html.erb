@@ -1,0 +1,37 @@
+<!-- myads-page -->
+<section id="main" class="clearfix myads-page">
+  <div class="container">
+    <div class="breadcrumb-section">          
+      <h2 class="title">Forum</h2>
+      </div><!-- banner -->
+        <% @forums.each do |forum| %>
+          <div class="ad-profile section">  
+              <div class="user-profile">
+                <div class="user-images">
+                  <%= image_tag("#{forum.id}.png") %>
+                </div>
+                <div class="user">
+                  <h2 class="forum_main_heading"><%= link_to "#{forum.main_branch}", forum %></h2>
+                  <h5><%= forum.main_branch_short_info %></h5>
+                </div>
+
+                <%= link_to 'Edit', edit_forum_path(forum) if current_user && current_user.admin %>
+                <%= link_to 'Destroy', forum, method: :delete, data: { confirm: 'Are you sure?' } if current_user && current_user.admin %>
+                <%= link_to 'New Forum', new_forum_path if current_user && current_user.admin %>
+
+                <div class="favorites-user">
+                  <div class="favorites">
+                    <p><%= forum.forum_threads.count %><small>Discussions</small></p>
+                  </div>
+                </div>                
+              </div><!-- user-profile -->     
+          </div><!-- ad-profile -->
+        <% end %>
+      </div><!-- row -->
+    </div><!-- row -->
+  </div><!-- container -->
+</section><!-- myads-page -->
+
+
+
+

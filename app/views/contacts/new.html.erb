@@ -1,0 +1,93 @@
+<section id="main" class="clearfix contact-us">
+		<div class="container">
+
+			
+			<h2 class="title">Contact Us</h2>
+
+
+
+
+
+			<!-- gmap -->
+			<div id="gmap"></div>
+
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAr_sjdwaZYAqB39ibFyhldV3sU-xC_-Lk&callback=initMap" async defer></script>
+              <script>
+                  function initMap() {
+                    // Create a map object and specify the DOM element for display.
+                    var map = new google.maps.Map(document.getElementById('gmap'), {
+                      center: {lat: 53.9, lng: 27.5667},
+                      scrollwheel: false,
+                      zoom: 14
+                    });
+
+                    var marker = new google.maps.Marker({
+                        position: {lat: 53.9, lng: 27.5667},
+                        map: map,
+                        title: ''
+                      });
+                  }
+                  google.maps.event.addDomListener(window, 'load', initMap);
+                </script>
+
+
+
+
+			<div class="corporate-info">
+				<div class="row">
+					<!-- contact-info -->
+					<div class="col-sm-4">
+						<div class="contact-info">
+
+							<h2>Info</h2>
+							<address>
+								<p><strong>Adress: </strong>Minsk, Belarus</p>
+								<p><strong>Phone:</strong>+375 (29) 333-69-25</p>
+								<p><strong>Email: </strong>support@hockeytut.com</p>
+							</address>
+
+							<ul class="social">
+								<li><a href="https://www.instagram.com/hockeytut_com/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+							</ul>
+						</div>
+					</div><!-- contact-info -->
+					
+					
+					<!-- feedback -->
+					<div class="col-sm-8">
+						<div class="feedback">
+							<h2>Send Us Your Question</h2>
+
+							<%= form_for @contact do |f| %>
+
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="form-group">
+											<%= f.text_field :name, :required => true, placeholder: 'Name', class: 'form-control' %>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<%= f.text_field :email, :required => true, placeholder: 'Email', class: 'form-control' %> 
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<%= f.text_area :message, :as => :text, :required => true, placeholder: 'Your Message', class: 'form-control', rows: '7' %>
+										</div> 
+									</div>     
+								</div>
+								<div class="form-group">
+									<button type="submit" class="btn">Submit Message</button>
+								</div>
+
+							<% end %>
+
+						</div>				
+					</div><!-- feedback -->	
+
+
+				</div><!-- row -->
+			</div>
+		</div><!-- container -->
+	</section><!-- main -->

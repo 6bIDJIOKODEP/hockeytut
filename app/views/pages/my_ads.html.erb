@@ -1,0 +1,141 @@
+<!-- ad-profile-page -->
+<section id="main" class="clearfix  ad-profile-page">
+  <div class="container">
+  
+    <div class="breadcrumb-section">          
+      <h2 class="title">My Profile</h2>
+    </div><!-- banner -->
+    
+    <div class="ad-profile section">  
+      <div class="user-profile">
+        <div class="user-images">
+          <%= image_tag('user.png') %>
+        </div>
+        <div class="user">
+          <h2>Hello, <%= current_user.first_name %></h2>
+          <h5>You last logged in at: <%= current_user.last_sign_in_at %></h5>
+        </div>
+
+             
+      </div><!-- user-profile -->
+          
+      <ul class="user-menu">
+        <li><%= link_to "My profile", edit_user_registration_path %></li>
+        <li class="active"><%= link_to "My ads", my_ads_path %></li>
+        <li><%= link_to "Close account", close_account_path %></li>
+      </ul>
+    </div><!-- ad-profile --> 
+
+
+
+
+      <div class="row">
+        <div class="col-sm-9">
+          <div class="profile section">
+
+
+              <% if @tournaments.count == 0 %>
+
+                <h4 class="text-center">You haven't posted any tournaments yet.</h4>
+
+              <% else %>
+
+              <% @tournaments.each do |tournament| %>
+
+
+
+                    
+              <div class="tournament-item row">
+                <!-- item-image -->
+                <div class="item-image-box col-sm-4">
+                  <div class="item-image">
+                  <%= link_to tournament, target: "_blank" do %>
+                    <img src="https://pp.vk.me/c637428/v637428953/218c2/7XgtiZjGi1g.jpg" alt="Image" class="img-responsive">
+                  <% end %>
+                  </div><!-- item-image -->
+                </div>
+                
+                <!-- rending-text -->
+                <div class="item-info col-sm-8">
+                  <!-- ad-info -->
+                  <div class="ad-info">
+
+                    <h3 class="item-price"><%= tournament.tournament_type.capitalize %> / 
+
+                    <% if tournament.tournament_type == 'tournament' %>
+                      <%= tournament.category %>
+                    <% else  %>
+                      <%= tournament.category_camp %>
+                    <% end %>
+
+                    </h3>
+
+
+
+                    <div class="item-cat">
+                      <span><%= link_to "#{tournament.name}", tournament, target: "_blank" %></span>
+                    </div>
+
+
+                    <div class="item-cat float-right">
+                      <%= link_to 'Edit  ', edit_tournament_path(tournament), class: "" %>
+                      <%= link_to ' Delete', tournament, method: :delete, data: { confirm: 'Are you sure?' }, class: "" %>
+                    </div>
+
+
+
+                  </div><!-- ad-info -->
+                  
+                  <!-- ad-meta -->
+                  <div class="ad-meta">
+                    <div class="meta-content">
+                      <div class="tag"><i class="fa fa-calendar"></i> <%= tournament.start_date.strftime('%d %B %Y') %> - <%= tournament.end_date.strftime('%d %B %Y') %></div>
+                    </div>        
+                    <!-- item-info-right -->
+                    <div class="user-option pull-right">
+                      <a data-toggle="tooltip" data-placement="top" title="<%= tournament.location %>"><i class="fa fa-map-marker"></i> </a>              
+                    </div><!-- item-info-right -->
+                  </div><!-- ad-meta -->
+                </div><!-- item-info -->
+              </div><!-- tournament-item -->
+
+
+
+
+
+
+
+                    <% end %>
+                  <% end %>
+              
+                  <!-- pagination  -->
+                  <div class="text-center">
+                    <%= will_paginate @tournaments %>
+                  </div><!-- pagination  -->  
+
+
+            </div>
+          </div><!-- recommended-ads -->
+
+
+      <div class="col-sm-3">
+        <a href="#"><img src="http://spinhawaii.org/wp-content/uploads/2014/09/300x600.gif" alt="" class="img-responsive"></a>
+      </div>
+
+    </div>
+    </div>
+  </div>
+
+
+  </div><!-- container -->
+</section><!-- ad-profile-page -->
+
+
+
+
+
+
+
+
+
+

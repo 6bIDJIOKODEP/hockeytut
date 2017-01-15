@@ -1,0 +1,49 @@
+<!-- myads-page -->
+<section id="main" class="clearfix myads-page">
+  <div class="container">
+
+      <div class="breadcrumb-section">
+        <ol class="breadcrumb">
+          <li><%= link_to "Forum", forums_path %></li>
+          <li><%= @forum.main_branch %></li>
+        </ol><!-- breadcrumb -->
+      </div><!-- breadcrumb -->
+    </div>
+      
+    </div>
+  </div>
+
+  	<% if !@forum_threads.nil? %>
+    <% @forum_threads.each do |forum_thread| %>      
+        <div class="container">
+          <div class="ad-profile section">  
+            <div class="user-profile">
+              <div class="user-images">
+                <%= image_tag('chat.png') %>
+              </div>
+              <div class="user">
+                <h2 class="forum_main_heading"><%= link_to "#{forum_thread.subject}", forum_forum_thread_path(@forum.id, forum_thread.id) %></h2>
+                <h5>Created by <%= forum_thread.user.first_name + " " + forum_thread.user.last_name %></h5>
+              </div>
+              <div class="favorites-user">
+                <div class="favorites">
+                  <p><%= forum_thread.forum_comments.count %><small>Comments</small></p>
+                </div>
+              </div>                
+            </div><!-- user-profile -->     
+          </div><!-- ad-profile --> 
+        </div>
+  	<% end %>
+  <% end %>
+
+  <div class="text-center ">
+    <%= will_paginate @forum_threads %>
+  </div>
+
+  <div class="container">
+    <%= link_to 'New Forum Thread', new_forum_forum_thread_path(@forum.id, @forum_thread), class: "btn btn-primary" %>
+  </div>
+
+</section><!-- myads-page -->
+
+

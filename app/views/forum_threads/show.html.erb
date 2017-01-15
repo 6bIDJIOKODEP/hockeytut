@@ -1,0 +1,63 @@
+<section id="main" class="clearfix ad-post-page">
+  <div class="container">
+
+    <div class="breadcrumb-section">
+      <ol class="breadcrumb">
+        <li><%= link_to "Forum", forums_path %></li>
+        <li><%= link_to "#{@forum_thread.forum.main_branch}", forum_path(@forum_thread.forum.id) %></li>
+        <li><%= @forum_thread.subject %></li>
+      </ol><!-- breadcrumb -->
+    </div><!-- breadcrumb -->
+
+    <div id="">
+      <div class="row category-tab">
+        <!-- Tab panes -->
+        <div class="col-md-12 col-sm-12">
+
+
+
+
+    <div class="section tab-content subcategory post-option">
+
+
+     <p style="display: inline-block; float: right;"><%= @forum_thread.created_at.strftime("%v").downcase %></p>
+
+    <h3><%= @forum_thread.subject %></h3>
+
+    <p><%= @forum_thread.main_discussion_text %></p>
+    <p>by <%= @forum_thread.user.first_name + " " + @forum_thread.user.last_name %></p>
+
+      <% if current_user && current_user.admin %>
+      <%= link_to 'Edit thread', edit_forum_forum_thread_path(@forum.id, @forum_thread.id) %>
+      <% elsif current_user && @forum_thread.user_id == current_user.id %>
+      <%= link_to 'Edit thread', edit_forum_forum_thread_path(@forum.id, @forum_thread.id) %>
+      <% end %>
+      </br>
+      <% if current_user && current_user.admin %>
+      <%= link_to 'Destroy thread', forum_forum_thread_path(@forum.id, @forum_thread.id), method: :delete, data: { confirm: 'Are you sure?' } %> 
+      <% elsif current_user && @forum_thread.user_id == current_user.id %>
+      <%= link_to 'Destroy thread', forum_forum_thread_path(@forum.id, @forum_thread.id), method: :delete, data: { confirm: 'Are you sure?' } %> 
+      <% end %>
+
+    
+    </div>
+
+
+
+
+          <div class="section tab-content subcategory post-option">
+
+
+
+<%= render 'forum_comments/list' %>
+
+<%= render 'forum_comments/form' %>
+
+
+
+          </div>
+        </div>      
+      </div>
+    </div> 
+  </div><!-- container -->
+</section><!-- post-page -->

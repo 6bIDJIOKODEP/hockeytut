@@ -1,0 +1,31 @@
+<% if @reviews.count == 0 %>
+	<p>No reviews for this yet.</p>
+<% else %>
+
+  <% @reviews.order("id desc").each do |r| %>
+   
+    <div class="row bordered padding-1">
+      <%= r.user.first_name + " " + r.user.last_name %>
+      <div class="reviews" id="stars_<%= r.id %>"></div></br>
+      <p><%= r.comment %></p>
+      <%= r.created_at.strftime("%v").downcase %></br>
+      <%= link_to "Remove My Review", [@tournament, r], method: :delete, data: {confirm: "Are you sure?"} if current_user && current_user == r.user %>
+    </div>
+
+
+    <script>
+      $('#stars_<%= r.id %>').raty({
+      	path: '/assets',
+      	readOnly: true,
+      	score: <%= r.star %>
+      });
+    </script>
+
+  <% end %>
+<% end %>
+
+
+
+
+					
+			

@@ -1,0 +1,2 @@
+json.extract! tournament, :id, :name, :type, :category, :teams_qty, :start_date, :end_date, :location, :currency, :team_price, :player_price, :description, :inhabitancy, :food, :transfer, :entertainment, :others, :phone_number, :contact_email, :club, :website, :created_at, :updated_at
+json.url tournament_url(tournament, format: :json)

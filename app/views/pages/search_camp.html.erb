@@ -1,0 +1,236 @@
+<section id="main" class="clearfix category-page">
+    <div class="container">
+      <div class="breadcrumb-section">          
+        <h2 class="title">Search Camps</h2>
+      </div>
+
+          <%= search_form_for @search, url: search_camp_path do |f| %>  
+
+            <!-- category-change -->            
+
+      <div class="category-info"> 
+        <div class="row">
+          <!-- accordion-->
+          <div class="col-md-3 col-sm-4">
+            <div class="accordion">
+              <!-- panel-group -->
+              <div class="panel-group" id="accordion">
+                
+                <!-- panel -->
+                <div class="panel-default panel-faq">
+                  <!-- panel-heading -->
+                  <div class="panel-heading">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#accordion-one">
+                      <h4 class="panel-title">Category<span class="pull-right"><i class="fa fa-minus"></i></span></h4>
+                    </a>
+                  </div><!-- panel-heading -->
+
+                  <div id="accordion-one" class="panel-collapse collapse in">
+                    <!-- panel-body -->
+                    <div class="panel-body">
+                      <% @categories.each do |s| %>
+                        <%= f.check_box :category_camp_in, {multiple: true}, s, nil %>
+                        <%= s %></br>
+                      <% end %>
+                    </div><!-- panel-body -->
+                  </div>
+
+                </div><!-- panel -->
+
+
+
+
+
+
+
+
+                <div class="panel-default panel-faq">
+                  <!-- panel-heading -->
+                  <div class="panel-heading">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#accordion-two">
+                      <h4 class="panel-title">Location<span class="pull-right"><i class="fa fa-plus"></i></span></h4>
+                    </a>
+                  </div><!-- panel-heading -->
+
+                  <div id="accordion-two" class="panel-collapse collapse in">
+                    <!-- panel-body -->
+                    <div class="panel-body">
+
+
+
+
+
+                    <%= text_field_tag :search, params[:search], class: "form-control geocomplete", placeholder: "Location.." %>
+
+
+
+
+
+
+
+
+
+                    </div><!-- panel-body -->
+                  </div>
+                </div><!-- panel -->
+
+
+
+
+
+
+
+
+                <!-- panel -->
+                <div class="panel-default panel-faq">
+                  <!-- panel-heading -->
+                  <div class="panel-heading">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#accordion-three">
+                      <h4 class="panel-title">
+                      Date
+                      <span class="pull-right"><i class="fa fa-plus"></i></span>
+                      </h4>
+                    </a>
+                  </div><!-- panel-heading -->
+
+                  <div id="accordion-three" class="panel-collapse collapse in">
+                    <!-- panel-body -->
+                    <div class="panel-body">
+
+                    <h5><i class="fa fa-calendar"></i> Start Date</h5>
+                      <%= f.date_select :start_date_gteq, {:order => [:day, :month, :year], :start_year => 2016, :end_year => 2029, :selected => Date.today.year - 1 }, class: "form-control"  %>
+
+                    <h5><i class="fa fa-calendar"></i> End Date</h5>
+                      <%= f.date_select :end_date_lteq, {:order => [:day, :month, :year], :start_year => 2016, :end_year => 2029, :selected => Date.today.year + 10 }, class: "form-control"  %>
+
+
+                    </div><!-- panel-body -->
+                  </div>
+                </div><!-- panel -->
+
+
+
+
+                <button type="submit" class="form-control" value="Search">Search</button>
+
+
+               </div><!-- panel-group -->
+            </div>
+          </div><!-- accordion-->
+
+          <!-- recommended-ads -->
+          <div class="col-sm-8 col-md-7">       
+            <div class="section recommended-ads">
+              <!-- featured-top -->
+              <div class="featured-top">
+                <div class="dropdown pull-right">
+                
+                <!-- category-change -->
+                <div class="dropdown category-dropdown">
+                  <h5>Sort by:</h5>           
+                  <span class="change-text"><%= sort_link @search, :start_date, "Start date.." %></span>
+                  <span class="change-text"><%= sort_link @search, :created_at, "Created at.." %></span>
+                    
+                           
+                </div><!-- category-change -->                            
+                </div>              
+              </div><!-- featured-top --> 
+
+
+
+              <% end %>
+
+
+
+                        <% @tournaments.each do |tournament| %>
+
+                            <%= link_to 'Edit', edit_tournament_path(tournament) if current_user && current_user.admin %>
+                            <%= link_to 'Destroy', tournament, method: :delete, data: { confirm: 'Are you sure?' } if current_user && current_user.admin %>
+
+                            <!-- tournament-item -->
+                            <div class="tournament-item row">
+                              <!-- item-image -->
+                              <div class="item-image-box col-sm-4">
+                                <div class="item-image">
+                                <%= link_to tournament, target: "_blank" do %>
+                                  <% if tournament.photos.length != 0 %>                                    
+                                    <img src="<%= tournament.photos[0].image.url %>" alt="Image" class="img-responsive">
+                                  <% else %>
+                                    <img src="https://purehockey-tsgsportsgroup1.netdna-ssl.com/media/catalog/product/3/4/34514-DEFAULT-L_1_1_5.jpg" alt="Image" class="img-responsive">
+                                  <% end %>
+                                <% end %>
+                                </div><!-- item-image -->
+                              </div>
+                              
+                              <!-- rending-text -->
+                              <div class="item-info col-sm-8">
+                                <!-- ad-info -->
+                                <div class="ad-info">
+
+                                  <h3 class="item-price"><%= tournament.tournament_type.capitalize %> / 
+
+                                  <% if tournament.tournament_type == 'tournament' %>
+                                    <%= tournament.category %>
+                                  <% else  %>
+                                    <%= tournament.category_camp %>
+                                  <% end %>
+
+                                  </h3>
+
+
+
+                                  <div class="item-cat">
+                                    <span><%= link_to "#{tournament.name}", tournament, target: "_blank" %></span>
+                                  </div>  
+
+                                  <div class="item-cat">
+                                    </br><i class="fa fa-map-marker"></i><%= ' ' + tournament.address %>
+                                  </div>
+
+                                </div><!-- ad-info -->
+                                
+                                <!-- ad-meta -->
+                                <div class="ad-meta">
+                                  <div class="meta-content">
+                                    <div class="tag"><i class="fa fa-calendar"></i> <%= tournament.start_date.strftime('%d %B %Y') %> - <%= tournament.end_date.strftime('%d %B %Y') %></div>
+                                  </div>                    
+                                  <!-- item-info-right -->
+                                  <div class="user-option pull-right">
+                                    <a data-toggle="tooltip" data-placement="top" title="By <%= tournament.user.first_name + ' ' + tournament.user.last_name %>"><i class="fa fa-user"></i> </a>              
+                                  </div><!-- item-info-right -->
+                                </div><!-- ad-meta -->
+                              </div><!-- item-info -->
+                            </div><!-- tournament-item -->
+
+
+
+                        
+                        <% end %>
+                        
+
+
+              <!-- ad-section -->           
+              <div class="ad-section text-center">
+                <a href="#"><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR6T-fCK6c-egADtrNHOnWsOmigi8uEYWQSnIb3fDFpceTKS4Ba" alt="Image" class="img-responsive"></a>
+              </div><!-- ad-section -->
+              
+              
+              <!-- pagination  -->
+              <div class="text-center">
+                <%= will_paginate @tournaments %>
+              </div><!-- pagination  -->          
+            </div>
+          </div><!-- recommended-ads -->
+
+          <div class="col-md-2 hidden-xs hidden-sm">
+            <div class="advertisement text-center">
+              <a href="#"><img src="http://spinhawaii.org/wp-content/uploads/2014/09/300x600.gif" alt="" class="img-responsive"></a>
+            </div>
+          </div>
+        </div>  
+      </div>
+    </div><!-- container -->
+  </section><!-- main -->
+  
+
+  

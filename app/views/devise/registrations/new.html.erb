@@ -1,0 +1,48 @@
+<!-- signup-page -->
+<section id="main" class="clearfix user-page">
+  <div class="container">
+    <div class="row text-center">
+      <!-- user-login -->     
+      <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+        <div class="user-account">
+          <h2>Register</h2>
+
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+
+            <div class="form-group">
+              <%= f.text_field :first_name, class: "form-control", autocomplete: "off", placeholder: "First Name" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_field :last_name, class: "form-control", autocomplete: "off", placeholder: "Last Name" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.email_field :email, class: "form-control", autofocus: true, placeholder: "Email" %>
+            </div>
+
+
+            <div class="form-group">
+              <%= f.password_field :password, class: "form-control", autocomplete: "off", placeholder: "Password" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "off", placeholder: "Password again" %>
+            </div>
+            
+            <div class="checkbox">
+              <label class="pull-left checked" for="signing"><input type="checkbox" name="signing" id="signing"> By registering you confirm your consent to be bound by/ you agree to the terms and conditions (of the User/ Service agreement) / the terms of service.</label>
+            </div>
+
+            <button type="submit" class="btn">Create account!</button>  
+          <% end %>
+
+
+
+                  
+        </div>
+      </div><!-- user-login -->     
+    </div><!-- row -->  
+  </div><!-- container -->
+</section><!-- signup-page -->

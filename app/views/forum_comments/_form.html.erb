@@ -1,0 +1,19 @@
+ 
+<%= form_for ([@forum, @forum_thread, @forum_thread.forum_comments.new]) do |f| %>
+
+        <div class="section seller-info">
+          <div class="row form-group">
+            <div class="col-sm-12">
+              <%= f.text_area :body, rows: 10, class: "form-control", placeholder: "Your comment goes here.." %>
+            </div>
+          </div>
+          <%= f.submit "Submit comment!", class: "btn btn-primary float-right" %>
+        </div><!-- section -->
+
+  <%= f.hidden_field :forum_thread_id, value: @forum_thread.id %>
+  <%= f.hidden_field :forum_id, value: @forum.id %>
+
+<% end %>
+
+
+

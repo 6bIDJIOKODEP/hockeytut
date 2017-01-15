@@ -1,0 +1,21 @@
+<!-- signin-page -->
+<section id="main" class="clearfix user-page">
+  <div class="container">
+    <div class="row text-center">
+      <!-- user-login -->     
+      <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+        <div class="user-account">
+          <h2>Forgot password?</h2>
+          <!-- form -->
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  					<%= devise_error_messages! %>
+            <div class="form-group">
+              <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Your Email" %>
+            </div>
+          	<button type="submit" class="btn">Restore password!</button>
+          <% end %>
+        </div>
+      </div><!-- user-login -->     
+    </div><!-- row -->  
+  </div><!-- container -->
+</section><!-- signin-page -->

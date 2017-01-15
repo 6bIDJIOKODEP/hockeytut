@@ -1,0 +1,59 @@
+<section class="home-banner" style="background: url(<%= image_path('hockey.jpg') %>)">
+	<div class="banner-overlay"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="car-info">
+					<ul class="socail list-inline">
+						<li><a href="https://www.instagram.com/hockeytut_com/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+					</ul>					
+					<h1> Hockey tournaments and camps</h1>
+					<p>Free international online platform for finding and publishing </br>information on hockey tournaments and camps. It will only </br>take you 5 minutes to find a tournament and camp you need.
+					</p>
+					<%= link_to 'TOURNAMENTS', search_path, class: "btn btn-primary" %>
+					<%= link_to 'CAMPS', search_camp_path, class: "btn btn-primary m-l-4 " %>
+				</div>
+			</div>
+			<div class="col-sm-4 col-sm-offset-2">
+				<div class="contact-form">
+					<h1>Find Tournaments</h1>
+					<div class="contact-info">
+
+						<%= search_form_for @search, url: search_path do |f| %> 
+
+
+								<h3>Category</h3>
+								
+								<%= f.select(:category_in, @categories.map {|c| [c, c ]}, { prompt: 'Select..' }, { class: 'search-control' } ) %>
+
+
+								<h3>Start date</h3>
+								<%= f.date_select :start_date_gteq, {:order => [:day, :month, :year], :start_year => 2016, :end_year => 2029, :selected => Date.today.year - 1 }, class: "date-home-control"  %>
+
+								<h3>End date</h3>
+								<%= f.date_select :end_date_lteq, {:order => [:day, :month, :year], :start_year => 2016, :end_year => 2029, :selected => Date.today.year + 10 }, class: "date-home-control"  %>
+
+
+
+
+
+
+
+
+
+							<h3>Location:</h3>
+								<%= text_field_tag :search, params[:search], class: "dropdown category-dropdown geocomplete", placeholder: "Location.." %>
+
+
+
+							<button type="submit" class="btn btn-primary float-right" value="Search">Search!</button>
+
+
+						<% end %>
+
+					</div>
+				</div>
+			</div>
+		</div><!-- row -->	
+	</div><!-- container -->	
+</section><!-- home banner -->

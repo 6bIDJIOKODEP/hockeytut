@@ -1,0 +1,24 @@
+<section id="main" class="clearfix user-page">
+  <div class="container">
+    <div class="row text-center">
+      <!-- user-login -->     
+      <div class="col-md-12">
+        <div class="user-account padding-s">
+          <!-- form -->
+          <%= form_for(forum) do |f| %>
+            <div class="form-group">
+              <%= f.text_field :main_branch, autofocus: true, class: "form-control", placeholder: "Name" %>
+            </div>
+            <div class="form-group">
+              <%= f.text_field :main_branch_short_info, rows: 5, class: "form-control", placeholder: "Short info.." %>
+            </div>
+
+            <button type="submit" class="btn btn-primary float-right">Submit!</button>
+
+          <% end %>
+        </div>
+      </div><!-- user-login -->     
+    </div><!-- row -->  
+  </div><!-- container -->
+</section>
+

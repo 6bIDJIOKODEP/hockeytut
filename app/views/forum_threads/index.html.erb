@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Forum Threads</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Subject</th>
+      <th>Main discussion text</th>
+      <th>Forum</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @forum_threads.each do |forum_thread| %>
+      <tr>
+        <td><%= forum_thread.subject %></td>
+        <td><%= forum_thread.main_discussion_text %></td>
+        <td><%= forum_thread.forum %></td>
+        <td><%= forum_thread.user %></td>
+        <td><%= link_to 'Show', forum_thread %></td>
+        <td><%= link_to 'Edit', edit_forum_thread_path(forum_thread) %></td>
+        <td><%= link_to 'Destroy', forum_thread, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Forum Thread', new_forum_forum_thread_path %>

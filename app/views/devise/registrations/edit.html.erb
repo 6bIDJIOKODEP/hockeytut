@@ -1,0 +1,112 @@
+<!-- ad-profile-page -->
+<section id="main" class="clearfix  ad-profile-page">
+  <div class="container">
+  
+    <div class="breadcrumb-section">          
+      <h2 class="title">My Profile</h2>
+    </div><!-- banner -->
+    
+    <div class="ad-profile section">  
+      <div class="user-profile">
+        <div class="user-images">
+          <%= image_tag('user.png') %>
+        </div>
+        <div class="user">
+          <h2>Hello, <%= current_user.first_name %></h2>
+          <h5>You last logged in at: <%= current_user.last_sign_in_at %></h5>
+        </div>
+
+             
+      </div><!-- user-profile -->
+          
+      <ul class="user-menu">
+        <li class="active"><%= link_to "My profile", edit_user_registration_path %></li>
+        <li><%= link_to "My ads", my_ads_path %></li>
+        <li><%= link_to "Close account", close_account_path %></li>
+      </ul>
+    </div><!-- ad-profile --> 
+
+    <div class="profile section">
+
+
+      <div class="row">
+        <div class="col-sm-12">
+
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="user-pro-section">
+            <!-- profile-details -->
+            <div class="profile-details section">
+              <h2>Profile Details</h2>
+              <!-- form -->
+
+
+              <div class="form-group">
+                <label>First Name</label>
+                <%= f.text_field :first_name, class: "form-control", placeholder: "Your First Name" %>
+              </div>
+
+              <div class="form-group">
+                <label>Last Name</label>
+                <%= f.text_field :last_name, class: "form-control", placeholder: "Your Last Name" %>
+              </div>
+
+              <div class="form-group">
+                <label>Phone number</label>
+                <%= f.text_field :phone, class: "form-control", placeholder: "Your Phone Number" %>
+              </div>
+
+              <div class="form-group">
+                <label>Organization</label>
+                <%= f.text_field :organization, class: "form-control", placeholder: "Your Organization" %>
+              </div>
+
+              <div class="form-group">
+                <label>Website</label>
+                <%= f.text_field :website, class: "form-control", placeholder: "Your Website" %>
+              </div>
+
+              <div class="form-group">
+                <label>E-mail</label>
+                <%= f.email_field :email, class: "form-control", placeholder: "Your E-mail" %>
+              </div>
+  
+
+                      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                      <% end %>
+
+
+            </div><!-- user-pro-edit -->
+
+
+            <!-- change-password -->
+            <div class="change-password section">
+              <h2>Change password</h2>
+              <!-- form -->
+              
+              <div class="form-group">
+                <label>New password</label><i>(leave it blank if you don't want to change it)</i><br />
+                <%= f.password_field :password, class: "form-control",autocomplete: "off" %>
+              </div>
+              
+              <div class="form-group">
+                <label>Confirm new password</label>
+                <%= f.password_field :password_confirmation, class: "form-control",autocomplete: "off" %>
+              </div>
+
+
+            </div><!-- change-password -->             
+           
+
+           <button type="submit" class="btn btn-primary float-right">Update Profile!</button>
+                     
+
+          <% end %>
+
+        </div><!-- profile -->          
+      </div><!-- row -->  
+    </div>        
+  </div><!-- container -->
+</section><!-- ad-profile-page -->

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hockeytut</title>
+    <%= csrf_meta_tags %>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Avgust Arinich">
+    <meta name="description" content="">
+
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAr_sjdwaZYAqB39ibFyhldV3sU-xC_-Lk&libraries=places"></script>  
+  
+  </head>
+
+  <body>
+
+  <% if notice %>
+  	<div id="notice_block">
+  		<p class="notice"><%= notice %></p>
+  	</div>
+  <% elsif alert %>
+	  <div id="notice_block">
+	  	<p class="alert"><%= alert %></p>
+	  </div>
+  <% end %>
+
+  	<%= render 'partial/navbar' %>
+
+    <%= yield %>
+
+    <%= render 'partial/footer' %>
+
+
+  </body>
+</html>
