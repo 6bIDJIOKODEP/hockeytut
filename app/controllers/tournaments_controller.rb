@@ -49,7 +49,7 @@ class TournamentsController < ApplicationController
         format.html { redirect_to @tournament, notice: 'Tournament was successfully created.' }
         format.json { render :show, status: :created, location: @tournament }
       else
-        format.html { redirect_to new_tournament_path, notice: "Please make sure to fill all required fields." }
+        format.html { render :new, notice: "Please make sure to fill all required fields." }
         format.json { render json: @tournament.errors, status: :unprocessable_entity }
       end
     end
@@ -102,7 +102,7 @@ class TournamentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def tournament_params
       params.require(:tournament).permit(:name, :tournament_type, :category, :category_camp, :teams_qty, :start_date, :end_date, 
-        :address, :currency, :team_price, :player_price, :description, :latitude, :longitude,
+        :address, :currency, :team_price, :player_price, :description, :latitude, :longitude, :video,
         :inhabitancy, :food, :transfer, :entertainment, :others, :phone_number, :contact_email, :club, :website, :papers, :images)
     end
 end

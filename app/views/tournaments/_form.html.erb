@@ -21,7 +21,7 @@
               <label class="col-sm-3">Type<span class="required">*</span></label>
               <div class="col-sm-9 user-type">
 
-              <%= f.radio_button :tournament_type, "tournament" %> <label for="tournament_tournament_type_tournament">Tournament </label>
+              <%= f.radio_button :tournament_type, "tournament", checked: true %> <label for="tournament_tournament_type_tournament">Tournament </label>
               <%= f.radio_button :tournament_type, "camp" %> <label for="tournament_tournament_type_camp">Camp</label>
 
 
@@ -30,8 +30,17 @@
 
 
 
-            <div class="row form-group select-price">
+            <div class="row form-group add-title">
+              <label class="col-sm-3 label-title">Title<span class="required">*</span></label>
+              <div class="col-sm-9">
+                <%= f.text_field :name, class: "form-control", id: "text", placeholder: "Title.." %>
+              </div>
+            </div>
 
+
+
+
+            <div class="row form-group select-price">
 
             <div id="category_tournament">
                 <label class="col-sm-3 label-title">Category<span class="required">*</span></label>
@@ -54,77 +63,10 @@
                       { prompt: 'Select..' }, { class: "form-control" }) %>
                   
                 </div>   
-
-              </div>
-
-            </div>
-
-
-
-
-
-            <div class="row form-group add-title">
-              <label class="col-sm-3 label-title">Title<span class="required">*</span></label>
-              <div class="col-sm-9">
-                <%= f.text_field :name, class: "form-control", id: "text", placeholder: "Title.." %>
-              </div>
-            </div>
-
-            <div class="row form-group">
-              <label class="col-sm-3 label-title">Description<span class="required">*</span></label>
-              <div class="col-sm-9">
-                <%= f.text_area :description, rows: 10, class: "form-control", placeholder: "Description.." %>
-              </div>
-            </div> 
-
-            <div class="row form-group">
-              <label class="col-sm-3 label-title">Location<span class="required">*</span></label>
-              <div class="col-sm-9">
-                <%= f.text_field :address, class: "form-control geocomplete", placeholder: "Location.." %>
               </div>
             </div>
 
 
-
-
-
-
-            <div class="row form-group select-price">
-
-              <label class="col-sm-3 label-title">Currency<span class="required">*</span></label>
-              <div class="col-sm-3">
-
-                <%= f.select(:currency, [["USD", "USD"], ["EUR", "EUR"], ["RUB", "RUB"], ["BYN", "BYN"]],
-                    { prompt: 'Select..' }, { class: "form-control" }) %>
-
-              </div>
-              <div class="team-relational">
-                <label class="col-sm-3 label-title">Team q-ty<span class="required">*</span></label>
-                <div class="col-sm-3">
-
-                  <%= f.number_field :teams_qty, class: "form-control" %>
-
-                </div>
-              </div>
-            </div>
-
-
-
-
-            <div class="row form-group select-price">
-
-              <label class="col-sm-3 label-title">Price for player<span class="required">*</span></label>
-              <div class="col-sm-3">
-                <%= f.number_field :player_price, class: "form-control" %>
-              </div>
-
-            <div class="team-relational">
-              <label class="col-sm-3 label-title">Price for team<span class="required">*</span></label>
-              <div class="col-sm-3">
-                <%= f.number_field :team_price, class: "form-control" %>
-              </div>
-            </div>
-            </div>
 
 
             <div class="row form-group">
@@ -143,18 +85,70 @@
 
 
 
-          
+            <div class="row form-group">
+              <label class="col-sm-3 label-title">Location<span class="required">*</span></label>
+              <div class="col-sm-9">
+                <%= f.text_field :address, class: "form-control geocomplete", placeholder: "Location.." %>
+              </div>
+            </div>
 
 
 
-          </div><!-- section -->
+            <div class="row form-group select-price">
+
+              <label class="col-sm-3 label-title">Currency</label>
+              <div class="col-sm-3">
+
+                <%= f.select(:currency, [["USD", "USD"], ["EUR", "EUR"], ["RUB", "RUB"], ["BYN", "BYN"]],
+                    { prompt: 'Select..' }, { class: "form-control" }) %>
+
+              </div>
+              <div class="team-relational">
+                <label class="col-sm-3 label-title">Team q-ty</label>
+                <div class="col-sm-3">
+
+                  <%= f.number_field :teams_qty, class: "form-control" %>
+
+                </div>
+              </div>
+            </div>
 
 
 
 
-          
-          <div class="section seller-info">
-            <h4>Additional</h4>
+            <div class="row form-group select-price">
+
+              <label class="col-sm-3 label-title">Price for player</label>
+              <div class="col-sm-3">
+                <%= f.number_field :player_price, class: "form-control" %>
+              </div>
+
+            <div class="team-relational">
+              <label class="col-sm-3 label-title">Price for team</label>
+              <div class="col-sm-3">
+                <%= f.number_field :team_price, class: "form-control" %>
+              </div>
+            </div>
+            </div>
+
+
+            <div class="row form-group additional">
+              <label class="col-sm-3 label-title">Included in price:<span class="required">*</span></label>
+              <div class="col-sm-9">
+                <div class="checkbox">
+
+                  <label for="camera"><%= f.check_box :inhabitancy, id: "camera" %> Inhabitancy</label>
+                  <label for="dual-sim"><%= f.check_box :food, id: "dual-sim" %> Food</label>
+                  <label for="keyboard"><%= f.check_box :transfer, id: "keyboard" %> Transfer</label>
+                  <label for="3g"><%= f.check_box :entertainment, id: "3g" %> Entertainment</label>
+                  <label for="gsm"><%= f.check_box :others, id: "gsm" %> Other</label>
+                </div>
+              </div>              
+            </div>
+
+
+
+
             <div class="row form-group">
               <label class="col-sm-3 label-title">Phone<span class="required">*</span></label>
               <div class="col-sm-9">
@@ -174,25 +168,32 @@
                 <%= f.text_field :club, class: "form-control", placeholder: "Your club.." %>
               </div>
             </div>
+
             <div class="row form-group">
               <label class="col-sm-3 label-title">Website</label>
               <div class="col-sm-9">
                 <%= f.text_field :website, class: "form-control", placeholder: "Your website.." %>
               </div>
             </div>
-            <div class="row form-group additional">
-              <label class="col-sm-3 label-title">Extra<span class="required">*</span></label>
-              <div class="col-sm-9">
-                <div class="checkbox">
 
-                  <label for="camera"><%= f.check_box :inhabitancy, id: "camera" %> Inhabitancy</label>
-                  <label for="dual-sim"><%= f.check_box :food, id: "dual-sim" %> Food</label>
-                  <label for="keyboard"><%= f.check_box :transfer, id: "keyboard" %> Transfer</label>
-                  <label for="3g"><%= f.check_box :entertainment, id: "3g" %> Entertainment</label>
-                  <label for="gsm"><%= f.check_box :others, id: "gsm" %> Other</label>
-                </div>
-              </div>              
-            </div>
+
+            <div class="row form-group">
+              <label class="col-sm-3 label-title">Description<span class="required">*</span></label>
+              <div class="col-sm-9">
+                <%= f.text_area :description, rows: 10, class: "form-control", placeholder: "Description.." %>
+              </div>
+            </div> 
+
+          </div><!-- section -->
+
+
+
+
+          
+          <div class="section seller-info">
+            <h4>Additional</h4>
+
+
 
 
             <div class="row form-group">
@@ -205,13 +206,23 @@
             </div>
 
 
+            <div class="row form-group">
+              <label class="col-sm-3 label-title">Video</label>
+              <div class="col-sm-9">
+                <%= f.text_field :video, class: "form-control", placeholder: "Link to a video (Youtube/Vimeo).." %>
+              </div>
+            </div>   
+
+
             <div class="row">
               <div class="col-sm-12">
                 <button type="submit" class="btn btn-primary full-width">Submit tournament!</button>
               </div>
             </div>
+
           </div><!-- section -->
 
+       
 
       <% end %>
 
@@ -244,6 +255,7 @@
 <script>
 
 $(document).ready(function(){
+  $("#category_tournament").show();
     $('input[type="radio"]').click(function(){
         if($(this).attr("value")=="tournament"){
             $("#category_camp").hide();
