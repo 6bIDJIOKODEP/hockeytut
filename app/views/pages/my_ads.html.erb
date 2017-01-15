@@ -50,7 +50,13 @@
                 <div class="item-image-box col-sm-4">
                   <div class="item-image">
                   <%= link_to tournament, target: "_blank" do %>
-                    <img src="https://pp.vk.me/c637428/v637428953/218c2/7XgtiZjGi1g.jpg" alt="Image" class="img-responsive">
+
+                      <% if tournament.photos.length != 0 %>                                    
+                        <img src="<%= tournament.photos[0].image.url %>" alt="Image" class="img-responsive">
+                      <% else %>
+                        <%= image_tag('nocontent.jpg', class: "img-responsive") %>
+                      <% end %>
+
                   <% end %>
                   </div><!-- item-image -->
                 </div>
@@ -59,6 +65,11 @@
                 <div class="item-info col-sm-8">
                   <!-- ad-info -->
                   <div class="ad-info">
+                  
+                    <div class="item-cat float-right">
+                      <%= link_to 'Edit  ', edit_tournament_path(tournament), class: "" %>
+                      <%= link_to ' Delete', tournament, method: :delete, data: { confirm: 'Are you sure?' }, class: "" %>
+                    </div>
 
                     <h3 class="item-price"><%= tournament.tournament_type.capitalize %> / 
 
@@ -77,10 +88,7 @@
                     </div>
 
 
-                    <div class="item-cat float-right">
-                      <%= link_to 'Edit  ', edit_tournament_path(tournament), class: "" %>
-                      <%= link_to ' Delete', tournament, method: :delete, data: { confirm: 'Are you sure?' }, class: "" %>
-                    </div>
+
 
 
 
