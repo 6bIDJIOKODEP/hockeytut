@@ -156,7 +156,7 @@
                                   <% if tournament.photos.length != 0 %>                                    
                                     <img src="<%= tournament.photos[0].image.url %>" alt="Image" class="img-responsive">
                                   <% else %>
-                                    <img src="https://purehockey-tsgsportsgroup1.netdna-ssl.com/media/catalog/product/3/4/34514-DEFAULT-L_1_1_5.jpg" alt="Image" class="img-responsive">
+                                    <%= image_tag('nocontent.jpg', class: "img-responsive") %>
                                   <% end %>
                                 <% end %>
                                 </div><!-- item-image -->
