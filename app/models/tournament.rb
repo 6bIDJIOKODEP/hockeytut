@@ -4,7 +4,7 @@ class Tournament < ApplicationRecord
   has_many :documents, dependent: :destroy
   has_many :photos, dependent: :destroy
   
-  validates :tournament_type, :name, :description, :address, :start_date, :end_date, :phone_number, :contact_email, presence: true
+  validates :tournament_type, :name, :address, :start_date, :end_date, :phone_number, :contact_email, presence: true
 
 	validates :category, presence: true, unless: ->(tournament){tournament.category_camp.present?}
 	validates :category_camp, presence: true, unless: ->(tournament){tournament.category.present?}

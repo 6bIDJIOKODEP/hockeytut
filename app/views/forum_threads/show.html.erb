@@ -24,7 +24,7 @@
 
     <h3><%= @forum_thread.subject %></h3>
 
-    <p><%= @forum_thread.main_discussion_text %></p>
+    <p><%= simple_format(@forum_thread.main_discussion_text) %></p>
     <p>by <%= @forum_thread.user.first_name + " " + @forum_thread.user.last_name %></p>
 
       <% if current_user && current_user.admin %>
