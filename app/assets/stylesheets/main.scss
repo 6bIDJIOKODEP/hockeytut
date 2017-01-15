@@ -621,7 +621,7 @@ textarea {
 	margin: 40px 0;
 }
 
-#ad-post .ad-section {
+#gogo-post .ad-section {
 	margin-bottom:20px;
 }
 
@@ -2553,7 +2553,7 @@ transform: scale(1.05) rotate(2deg);
  	Ad Profile
  ========================================================================== */
 
-.ad-profile {
+.gogo-profile {
 	background-color: #fff;
 	overflow: hidden;
 	padding:0;
@@ -2575,72 +2575,72 @@ transform: scale(1.05) rotate(2deg);
 	float: right;
 }
 
-.ad-profile .user {
+.gogo-profile .user {
 	float: left;
 }
 
-.ad-profile .user h2 {
+.gogo-profile .user h2 {
 	font-weight: 300;
 	color: #2a2a2a;
 	margin-top: 30px;
 }
 
-.ad-profile .user h2 a {
+.gogo-profile .user h2 a {
 	font-weight: 700;
 	color: #00a651;
 }
 
-.ad-profile .user h5 {
+.gogo-profile .user h5 {
 	color: #9fa4a4;
 	font-size: 14px;
 }
 
-.ad-profile .my-ads,
-.ad-profile .favorites {
+.gogo-profile .my-ads,
+.gogo-profile .favorites {
     float: left;
     padding: 30px 40px;
     text-align: center;
     border-left: 1px solid #f5f5f5;
 }
 
-.ad-profile .my3-ads {
+.gogo-profile .my3-ads {
 	 padding: 30px 55px;
 }
 
-.ad-profile .favorites-user small {
+.gogo-profile .favorites-user small {
 	display:block;
 	font-size: 16px;
 	color: #000;
 	line-height: 0;
 }
 
-.ad-profile .favorites-user p {
+.gogo-profile .favorites-user p {
 	font-size: 28px;
 	color: #3b5998;
 	display:block;
 }
 
-.ad-profile .favorites-user small:hover {
+.gogo-profile .favorites-user small:hover {
 	color: #00a651;
 }
 
-.ad-profile .user-menu {
+.gogo-profile .user-menu {
 	border-top: 1px solid #f5f5f5;
 }
 
-.ad-profile .user-menu li {
+.gogo-profile .user-menu li {
 	padding: 15px 20px;
 	float: left;
 	border-left: 1px solid #f5f5f5;
 }
 
-.ad-profile .user-menu li a {
+.gogo-profile .user-menu li a {
 	color: #9fa4a4;
 	font-size: 16px;
 }
 
-.ad-profile .user-menu li.active a,
-.ad-profile .user-menu li a:hover {
+.gogo-profile .user-menu li.active a,
+.gogo-profile .user-menu li a:hover {
 	color: #00a651;
 }
 
@@ -2703,7 +2703,7 @@ transform: scale(1.05) rotate(2deg);
     margin-bottom: 30px;
 }
 
-.ad-profile-page .buttons a.btn {
+.gogo-profile-page .buttons a.btn {
 	margin-bottom: 0;
 }
 
@@ -4431,7 +4431,7 @@ transform: scale(1.05) rotate(2deg);
 
 /* My Resume */
 
-.job-ad-profile .favorites-user small {
+.job-gogo-profile .favorites-user small {
 	text-transform: uppercase;
 	font-weight: 500;
 }
