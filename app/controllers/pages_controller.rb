@@ -1,21 +1,23 @@
 class PagesController < ApplicationController
 
+
 	require 'will_paginate/array'
 
   def search_camp
     
 
+
+
+  	@search = Tournament.where("tournament_type = 'camp'").search(params[:q])
+  	@tournaments = @search.result
+		@hash = Gmaps4rails.build_markers(@tournaments) do |tournament, marker|
+		  marker.lat tournament.latitude
+		  marker.lng tournament.longitude
+		  marker.infowindow tournament.name
+		end
+
 		@categories = ["Players", "Goalkeepers", "All"]
-
-	  if params[:search].present?
-	  	@search = Tournament.where("tournament_type = 'camp'").near(params[:search], 200, :order => 'distance' ).search(params[:q])
-	  	@tournaments = @search.result.paginate(:page => params[:page], :per_page => 8)
-	  else
-	  	@search = Tournament.where("tournament_type = 'camp'").search(params[:q])
-	  	@tournaments = @search.result.paginate(:page => params[:page], :per_page => 8)
-	  end
-
-
+		
   end
 
 
@@ -24,18 +26,20 @@ class PagesController < ApplicationController
 
   def search
 
+  	@search = Tournament.where("tournament_type = 'tournament'").search(params[:q])
+  	@tournaments = @search.result
+		@hash = Gmaps4rails.build_markers(@tournaments) do |tournament, marker|
+		  marker.lat tournament.latitude
+		  marker.lng tournament.longitude
+		  marker.infowindow tournament.description
+		  marker.json({:id => tournament.id, :name => tournament.name, :description => tournament.description })
+			marker.infowindow render_to_string(:partial => "/pages/info", :locals => { :object => tournament})
+		end
+
 
   	@categories = ["98-99", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", 
     "2008", "2009", "2010", "U-18", "U-20", "Women", "Amateur", "Professional", "Other"]
 
-    if params[:search].present?
-    	@search = Tournament.where("tournament_type = 'tournament'").near(params[:search], 200, :order => 'distance' ).search(params[:q])
-    	@tournaments = @search.result.paginate(:page => params[:page], :per_page => 8)
-    else
-    	@search = Tournament.where("tournament_type = 'tournament'").search(params[:q])
-    	@tournaments = @search.result.paginate(:page => params[:page], :per_page => 8)
-    end
-  
   end
 
 

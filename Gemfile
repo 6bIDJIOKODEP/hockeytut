@@ -3,15 +3,29 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 gem 'devise', '~> 4.2'
+
 gem 'sendgrid', '~> 1.2'
+
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
+
 gem 'will_paginate', '~> 3.1', '>= 3.1.5'
+
 gem 'mail_form', '~> 1.5', '>= 1.5.1'
+
 gem 'geocoder', '~> 1.3', '>= 1.3.7'
+
+gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
+
+gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
+
 gem 'ransack', '~> 1.7'
+
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
+
 gem 'aws-sdk', '<= 2.0'
+
 gem 'jquery-fileupload-rails', '~> 0.4.7'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use postgresql as the database for Active Record

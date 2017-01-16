@@ -535,11 +535,13 @@ textarea {
 	color: #EB2429;
 }
 
-.category-ad {
+.category-search {
 	background-color: #fff;
 	display: inline-block;
 	padding:40px 0px 10px;
 	border-radius: 3px;
+  margin-top: -50px;
+	position: relative;
 }
 
 .category-list .category-item {
@@ -1138,7 +1140,7 @@ transform: scale(1.05) rotate(2deg);
 .home-one .category-list .category-item {
 	width:16.66%;
 	padding:15px;
-	margin-bottom:25px;
+	margin-bottom:-20px;
 }
 
 .home-two .featureds {
@@ -3950,22 +3952,22 @@ transform: scale(1.05) rotate(2deg);
 	color: #00a651;
 }
 
-.job-category-ad {
+.job-category-search {
 	margin-top: 55px;
 	padding: 40px 10px 10px;
 }
 
-.job-category-ad .category-list .category-icon {
+.job-category-search .category-list .category-icon {
 	margin-bottom: 5px;
 }
 
-.job-category-ad .category-list .category-item {
+.job-category-search .category-list .category-item {
 	width: 16.6%;
 	min-height: 90px;
 	margin-bottom: 20px;
 }
 
-.job-category-ad .category-list .category-item img,
+.job-category-search .category-list .category-item img,
 .browse-categories .single-service img {
     filter: grayscale(1);
     -webkit-filter: grayscale(1);
@@ -3974,7 +3976,7 @@ transform: scale(1.05) rotate(2deg);
     -ms-filter: grayscale(1);
 }
 
-.job-category-ad .category-list .category-item:hover img,
+.job-category-search .category-list .category-item:hover img,
 .browse-categories .single-service:hover img {
     filter: grayscale(0);
     -webkit-filter: grayscale(0);
