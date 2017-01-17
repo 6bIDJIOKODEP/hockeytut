@@ -2134,6 +2134,13 @@ transform: scale(1.05) rotate(2deg);
 .adpost-details input[type="radio"]:checked + label:after {
 	border: 5px solid #00a651;
 }
+input[type=checkbox]:checked + label:before {
+    content: "\2022";
+    color: #f3f3f3;
+    font-size: 30px;
+    text-align: center;
+    line-height: 18px;
+}
 
 .required {
 	color: #ed1c24;

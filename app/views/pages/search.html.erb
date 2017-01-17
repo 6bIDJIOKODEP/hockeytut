@@ -14,12 +14,43 @@
       <!-- category-search -->
       <div class="category-search text-center">
         <ul class="category-list">
-        <div class="container">  
+        <div class="container checkbox">  
         <% @categories.each do |s| %>
-          <li class="category-item"><%= f.check_box :category_in, {multiple: true}, s, nil %>
-          <%= s %></li>
-        
+
+
+        <% if !params['q'].nil? %>
+
+
+              <% if params['q']['category_in'] && (params['q']['category_in'].include? s) %>
+
+                <li class="category-item"><label for="q_category_in_<%= s.downcase %>" class="checked"><%= s %><%= f.check_box :category_in, {multiple: true}, s, nil %></label></li>
+
+              <% else %>
+
+                <li class="category-item"><label for="q_category_in_<%= s.downcase %>"><%= s %><%= f.check_box :category_in, {multiple: true}, s, nil %></label></li>
+
+              <% end %>
+
+          
+
+
+        <% else %>
+
+        <li class="category-item"><label for="q_category_in_<%= s.downcase %>"><%= s %><%= f.check_box :category_in, {multiple: true}, s, nil %></label></li>         
+
         <% end %>
+
+
+
+
+        
+      <% end %>
+
+
+
+
+
+
         </div>
         <div class="container">
           <li class="col-md-6 p-b-3">
@@ -57,25 +88,7 @@
 
 
 
-<section id="main" class="clearfix category-page">
-    <div class="container">
-      <div class="breadcrumb-section">          
-        <h2 class="title">Search Tournaments</h2>
-      </div>
-
-          
-
-            <!-- category-change -->            
-
-      <div class="category-info"> 
-        <div class="row">
-
-          <!-- recommended-ads -->
-          <div class="col-sm-8 col-md-7">       
-            <div class="section recommended-ads">
-
-
-
+                      <div style="display: none">
               
 
 
@@ -85,11 +98,6 @@
                             <%= link_to 'Edit', edit_tournament_path(tournament) if current_user && current_user.admin %>
                             <%= link_to 'Destroy', tournament, method: :delete, data: { confirm: 'Are you sure?' } if current_user && current_user.admin %>
 
-                            <!-- tournament-item -->
-                            <div class="tournament-item row">
-                              <!-- item-image -->
-                              <div class="item-image-box col-sm-4">
-                                <div class="item-image">
                                 <%= link_to tournament, target: "_blank" do %>
                                   <% if tournament.photos.length != 0 %>                                    
                                     <img src="<%= tournament.photos[0].image.url %>" alt="Image" class="img-responsive">
@@ -97,65 +105,28 @@
                                     <%= image_tag('nocontent.jpg', class: "img-responsive") %>
                                   <% end %>
                                 <% end %>
-                                </div><!-- item-image -->
-                              </div>
                               
-                              <!-- rending-text -->
-                              <div class="item-info col-sm-8">
-                                <!-- ad-info -->
-                                <div class="ad-info">
-
-                                  <h3 class="item-price"><%= tournament.tournament_type.capitalize %> / 
-
+                                  <%= tournament.tournament_type.capitalize %> / 
                                   <% if tournament.tournament_type == 'tournament' %>
                                     <%= tournament.category %>
                                   <% else  %>
                                     <%= tournament.category_camp %>
                                   <% end %>
+                                  <%= link_to "#{tournament.name}", tournament, target: "_blank" %>
+                                  <i class="fa fa-map-marker"></i><%= ' ' + tournament.address %>
+                                  <i class="fa fa-calendar"></i> <%= tournament.start_date.strftime('%d %B %Y') %> - <%= tournament.end_date.strftime('%d %B %Y') %>
+                                  <%= tournament.user.first_name + ' ' + tournament.user.last_name %><i class="fa fa-user"></i> </a>              
 
-                                  </h3>
-
-
-
-                                  <div class="item-cat">
-                                    <span><%= link_to "#{tournament.name}", tournament, target: "_blank" %></span>
-                                  </div>  
-
-                                  <div class="item-cat">
-                                    </br><i class="fa fa-map-marker"></i><%= ' ' + tournament.address %>
-                                  </div>
-
-                                </div><!-- ad-info -->
-                                
-                                <!-- ad-meta -->
-                                <div class="ad-meta">
-                                  <div class="meta-content">
-                                    <div class="tag"><i class="fa fa-calendar"></i> <%= tournament.start_date.strftime('%d %B %Y') %> - <%= tournament.end_date.strftime('%d %B %Y') %></div>
-                                  </div>                    
-                                  <!-- item-info-right -->
-                                  <div class="user-option pull-right">
-                                    <a data-toggle="tooltip" data-placement="top" title="By <%= tournament.user.first_name + ' ' + tournament.user.last_name %>"><i class="fa fa-user"></i> </a>              
-                                  </div><!-- item-info-right -->
-                                </div><!-- ad-meta -->
-                              </div><!-- item-info -->
-                            </div><!-- tournament-item -->
+                          <% end %>
 
 
-                    <% end %>
-                        
-                        
-                        
+
+                      </div>
 
 
-              
-                   
-            </div>
-          </div><!-- recommended-ads -->
 
-        </div>  
-      </div>
-    </div><!-- container -->
-  </section><!-- main -->
+
+
   
     
               <script>
