@@ -13,7 +13,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+    <%= yield(:link_rel) %>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAr_sjdwaZYAqB39ibFyhldV3sU-xC_-Lk&libraries=places"></script>  
     <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>

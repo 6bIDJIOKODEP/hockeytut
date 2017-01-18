@@ -1,5 +1,5 @@
 <!-- signin-page -->
-<section id="main" class="clearfix user-page">
+<section id="main" class="clearfix user-page" style="background-image: url(<%= image_path('bg.png') %>)">
   <div class="container">
     <div class="row text-center">
       <!-- user-login -->     
@@ -25,11 +25,11 @@
               <%= link_to "Forgot password?", new_user_password_path %>
             </div>
           </div><!-- forgot-password -->
-          <button type="submit" class="btn">Login</button>
+          <button type="submit" class="myButton">Login</button>
           <% end %>
         </div>
 
-        <li><%= link_to "Don't have an account? Create one!", new_user_registration_path, class: "btn btn-primary" %></li>
+        <li><%= link_to "Don't have an account? Create one!", new_user_registration_path, class: "searchButton m-t-3" %></li>
       </div><!-- user-login -->     
     </div><!-- row -->  
   </div><!-- container -->

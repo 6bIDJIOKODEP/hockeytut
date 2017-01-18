@@ -12,7 +12,7 @@
             <div class="form-group">
               <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'form-control', placeholder: 'Email' %>
             </div>
-          	<button type="submit" class="btn">Resend confirmation instructions</button>
+          	<button type="submit" class="myButton">Resend confirmation instructions</button>
           <% end %>
         </div>
       </div><!-- user-login -->     

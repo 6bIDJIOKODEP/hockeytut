@@ -1,17 +1,15 @@
-<section class="home-banner" style="background: url(<%= image_path('hockey.jpg') %>)">
+<% provide(:link_rel, '<link href="https://fonts.googleapis.com/css?family=Open+Sans:800&amp;subset=cyrillic" rel="stylesheet">'.html_safe) %>
+<section class="home-banner" style="background-image: url(<%= image_path('hockey.jpg') %>)">
 	<div class="banner-overlay"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-6">
-				<div class="car-info">
-					<ul class="socail list-inline">
-						<li><a href="https://www.instagram.com/hockeytut_com/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-					</ul>					
-					<h1> Hockey tournaments and camps</h1>
+			<div class="car-info">				
+					<h1>Hockey tournaments & camps</h1>
 					<p>Free international online platform for finding and publishing </br>information on hockey tournaments and camps. It will only </br>take you 5 minutes to find a tournament and camp you need.
 					</p>
-					<%= link_to 'TOURNAMENTS', search_path, class: "btn btn-primary" %>
-					<%= link_to 'CAMPS', search_camp_path, class: "btn btn-primary m-l-4 " %>
+					<%= link_to 'TOURNAMENTS', search_path, class: "hButton" %>
+					<%= link_to 'CAMPS', search_camp_path, class: "hButton m-l-4 " %>
 				</div>
 			</div>
 			<div class="col-sm-4 col-sm-offset-2">
@@ -37,16 +35,7 @@
 
 
 
-
-
-
-
-							<h3>Location:</h3>
-								<%= text_field_tag :search, params[:search], class: "dropdown category-dropdown geocomplete", placeholder: "Location.." %>
-
-
-
-							<button type="submit" class="btn btn-primary float-right" value="Search">Search!</button>
+							<button type="submit" class="myButton float-right" value="Search">Search!</button>
 
 
 						<% end %>

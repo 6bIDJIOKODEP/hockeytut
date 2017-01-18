@@ -34,28 +34,26 @@
 				<div class="nav-right">
 					<!-- language-dropdown -->
 					<div class="dropdown language-dropdown">
-						<i class="fa fa-globe"></i> 						
-						<a data-toggle="dropdown" href="#"><span class="change-text">Eng</span> <i class="fa fa-angle-down"></i></a>
+						<%= image_tag('flag-usa.jpg') %> 						
+						<a data-toggle="dropdown" href="#"><span class="change-text">English</span> <i class="fa fa-angle-down"></i></a>
 						<ul class="dropdown-menu language-change">
-							<li><a href="#">Рус</a></li>
-							<li><a href="#">Eng</a></li>
+							<li><%= image_tag('flag-rus.jpg') %><a href="#">Русский</a></li>
+							<li><%= image_tag('flag-usa.jpg') %><a href="#">English</a></li>
 						</ul>								
 					</div><!-- language-dropdown -->
 
 					<% if !user_signed_in? %>
 					<!-- sign-in -->					
 						<ul class="sign-in">
-							<li><i class="fa fa-user"></i></li>
-							<li><%= link_to 'Sign In', new_user_session_path %></li>
-							<li><%= link_to "Register", new_user_registration_path %></li>
+							<li><%= image_tag('person.png') %><%= link_to 'Sign In or Register', new_user_session_path %></li>
 						</ul>
 					<!-- sign-in -->							
 					<% else %>
 						<div class="dropdown language-dropdown">
 							<ul class="sign-in">
-							<li><i class="fa fa-user"></i></li>
+							<li><%= image_tag('person.png') %></li>
 							</ul> 						
-							<a data-toggle="dropdown" href="#"><span class="change-text">Hi there, <%= current_user.first_name %>!</span> <i class="fa fa-angle-down"></i></a>
+							<a data-toggle="dropdown" href="#"><span class="change-text"><%= current_user.first_name %>!</span> <i class="fa fa-angle-down"></i></a>
 							<ul class="dropdown-menu language-change">
 								<li><%= link_to "My profile", edit_user_registration_path %></li>
 								<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
@@ -63,7 +61,7 @@
 						</div>		
 					<% end %>
 									
-					<%= link_to 'Post ad', new_tournament_path, class: "btn" %>
+					<%= link_to 'Post ad', new_tournament_path, class: "myButton " %>
 				</div>
 				<!-- nav-right -->
 			</div><!-- container -->

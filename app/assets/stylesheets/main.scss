@@ -63,16 +63,20 @@ ul {
 
 a {
 	font-family: 'Ubuntu', sans-serif;
-	color: #5d80a6;
+	color: #0688fa;
 }
 
 a, 
 a:hover,
-a:focus,
+a:focus {
+	text-decoration:none;
+	outline: none;
+	color:#fff;
+}
 input:focus {
 	text-decoration:none;
 	outline: none;
-	color:#337ab7;
+	color:#131313;
 }
 
 img {
@@ -176,7 +180,7 @@ textarea {
 }
 
 .btn.btn-primary:hover {
-	background-color:#5d80a6;
+	background-color:#0688fa;
 	color:#fff;
 }
 
@@ -205,17 +209,20 @@ textarea {
 .navbar-default .navbar-toggle:hover {
 	background-color: transparent;
 }
-
+.navbar-brand > img {
+	padding-top: 6px;
+}
 .page {
 	padding-bottom:0;
 }
-
+.sign-in li a {
+	padding: 0px 10px;
+}
 /* ==========================================================================
  	Header
  ========================================================================== */
 
 #header .navbar-default {
-    padding: 4px 0;
     background: #131313;
     border: none;
  }
@@ -230,6 +237,7 @@ textarea {
 
 .nav li a,
 .navbar-default .navbar-nav>li>a {
+	margin: 0px 15px;
 	background-color: transparent;
 	font-weight: 500;
 	font-size: 14px;
@@ -293,13 +301,15 @@ textarea {
 }
 
 .language-dropdown li>a {
-	display: block;
+	display: inline-block;
     padding: 3px 20px;
     clear: both;
     font-weight: 400;
     color: #a1a1a1;
 }
-
+.language-dropdown li img {
+    padding-left: 15px ;
+}
 .sign-in {
 	display:inline;
 }
@@ -353,7 +363,7 @@ textarea {
 #header a.btn,
 .download-button a.btn {
 	padding: 5px 25px 7px;
-	background-color: #5d80a6;
+	background-color: #0688fa;
 	font-weight: 400;
 	font-size: 14px;
 	color: #fff;
@@ -491,8 +501,8 @@ textarea {
 }
 
 .banner-form button:hover {
-	background-color: #5d80a6;
-	border-color: #5d80a6;
+	background-color: #0688fa;
+	border-color: #0688fa;
 }
 
 .banner-socail li {
@@ -728,7 +738,7 @@ textarea {
 }
 
 .ad-meta .user-option a.edit-item:hover {
-	color:#5d80a6;
+	color:#0688fa;
 }
 
 .ad-meta .user-option a.delete-item {
@@ -1083,7 +1093,7 @@ transform: scale(1.05) rotate(2deg);
 }
 
 .home-one .banner-form input[type="submit"]:hover {
-	background-color: #5d80a6;
+	background-color: #0688fa;
 	color: #fff;
 }
 
@@ -1139,7 +1149,7 @@ transform: scale(1.05) rotate(2deg);
 .home-two .category-list .category-item, 
 .home-one .category-list .category-item {
 	width:16.66%;
-	padding:15px;
+	padding:7px;
 	margin-bottom:-20px;
 }
 
@@ -2081,7 +2091,7 @@ transform: scale(1.05) rotate(2deg);
 }
 
 .selected-product  .edit {
-	color: #5d80a6;
+	color: #0688fa;
 	position: absolute;
 	right: 0;
 	top: 14px;
@@ -2380,7 +2390,7 @@ input[type=checkbox]:checked + label:before {
 }
 
 .user-account {
-	background-color: #fff;
+	background-color: transparent;
 	border-radius: 4px;
 	padding: 40px 50px;
 }
@@ -2433,7 +2443,7 @@ input[type=checkbox]:checked + label:before {
 	font-size:18px;
 	border-radius:4px;
 	margin-top:25px;
-	background-color:#5d80a6;
+	background-color:#0688fa;
 }
 
 .user-page .btn-primary:hover {
@@ -2625,7 +2635,7 @@ input[type=checkbox]:checked + label:before {
 
 .gogo-profile .favorites-user p {
 	font-size: 28px;
-	color: #3b5998;
+	color: #0688fa;
 	display:block;
 }
 
@@ -3034,7 +3044,7 @@ input[type=checkbox]:checked + label:before {
 }
 
 .contact-info .social i.fa-facebook {
-	color: #5d80a6;
+	color: #0688fa;
 }
 
 .contact-info .social i.fa-twitter {
@@ -3150,7 +3160,7 @@ input[type=checkbox]:checked + label:before {
 }
 
 .footer-widget ul li a i {
-    color: #3b5998;
+    color: #0688fa;
     font-size: 45px;
     vertical-align: middle;
     margin-right: 15px;
@@ -3233,6 +3243,8 @@ input[type=checkbox]:checked + label:before {
 ========================================================================== */
 
 .home-banner {
+	background-repeat: no-repeat;
+  background-position: top center;
  	background-size: cover;
  	position: relative;
  	color: #fff;
@@ -3245,12 +3257,11 @@ input[type=checkbox]:checked + label:before {
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
-    background-color: rgba(37, 34, 34, 0.6);
+	min-height: 1400px;
 }
 
 .home-banner .car-info {
-	margin-top: 105px;
+	margin-top: 55px;
 }
 
 .car-info .socail li+li {
@@ -3271,6 +3282,14 @@ input[type=checkbox]:checked + label:before {
 	font-weight: 700;
 	text-transform: uppercase;
 	margin-top: 10px; 
+}
+
+.car-info h1 {
+	font-family: 'Open Sans';
+	font-size: 52px;
+	font-weight: 800;
+	text-transform: uppercase;
+	margin-top: 80px;
 }
 
 .home-banner h2 {
@@ -4333,7 +4352,7 @@ input[type=checkbox]:checked + label:before {
 }
 
 .share-social li a .fa-facebook-official {
-	color: #5d80a6;
+	color: #0688fa;
 }
 
 .share-social li a .fa-twitter-square {
@@ -4795,7 +4814,7 @@ input[type=checkbox]:checked + label:before {
 
 .post-resume .upload-image {
 	float: right;
-	background-color: #5d80a6;
+	background-color: #0688fa;
 	color: #fff;
 	width: 29%;
 	text-align: center;
@@ -4827,8 +4846,8 @@ input[type=checkbox]:checked + label:before {
 }
 
 .post-resume form .buttons a.btn {
-	background-color: #5d80a6;
-	border-color: #5d80a6;
+	background-color: #0688fa;
+	border-color: #0688fa;
 	margin-bottom: 0;
 	padding: 10px 20px;
 }
@@ -4943,25 +4962,7 @@ input[type=checkbox]:checked + label:before {
 }
 
 
-input, select, a, .transition,
-.footer-widget input, 
-.favorites-user small, 
-.feedback input[type="submit"], 
-.select-category li:before,
-.team-social, .social-widget a,
-.banner-form input[type="submit"],
-.category-title, .category-icon img, 
-.category-quantity,
-.owl-next, .owl-prev,
-.home-banner .contact-form .form-control,
-.col-to-action .btn, .see-more button,
-.post-resume .upload-image {
-	-webkit-transition: all 500ms;
-	-moz-transition: all 500ms;
-	-ms-transition: all 500ms;
-	-o-transition: all 500ms;
-	transition: all 500ms;
-}
+
 
 
  /* ==========================================================================
