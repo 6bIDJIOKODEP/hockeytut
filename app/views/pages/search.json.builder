@@ -1,4 +1,4 @@
 json.array!(@tournaments) do |tournament|
-  json.extract! tournament, :name, :description, :latitude, :longitude, :address
+  json.extract! tournament, :latitude, :longitude
   json.url tournament_url(tournament, format: :json)
 end

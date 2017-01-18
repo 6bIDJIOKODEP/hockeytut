@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-
+  before_action :set_tournament, only: [:show, :show_camp]
 	require 'will_paginate/array'
 
   def search_camp
@@ -11,9 +11,11 @@ class PagesController < ApplicationController
   	@search = Tournament.where("tournament_type = 'camp'").search(params[:q])
   	@tournaments = @search.result
 		@hash = Gmaps4rails.build_markers(@tournaments) do |tournament, marker|
+			@tournament = tournament
 		  marker.lat tournament.latitude
 		  marker.lng tournament.longitude
-		  marker.infowindow tournament.name
+		  marker.json({:id => tournament.id})
+			marker.infowindow render_to_string(:action => 'show_camp', :layout => false)
 		end
 
 		@categories = ["Players", "Goalkeepers", "All"]
@@ -29,11 +31,11 @@ class PagesController < ApplicationController
   	@search = Tournament.where("tournament_type = 'tournament'").search(params[:q])
   	@tournaments = @search.result
 		@hash = Gmaps4rails.build_markers(@tournaments) do |tournament, marker|
+			@tournament = tournament
 		  marker.lat tournament.latitude
 		  marker.lng tournament.longitude
-		  marker.infowindow tournament.description
-		  marker.json({:id => tournament.id, :name => tournament.name, :description => tournament.description })
-			marker.infowindow render_to_string(:partial => "/pages/info", :locals => { :object => tournament})
+		  marker.json({:id => tournament.id})
+			marker.infowindow render_to_string(:action => 'show', :layout => false)
 		end
 
 
@@ -44,9 +46,13 @@ class PagesController < ApplicationController
 
 
 
+  def show
+  	respond_with(@tournament, :layout =>  !request.xhr?)	
+  end
 
-
-
+  def show_camp
+  	respond_with(@tournament, :layout =>  !request.xhr?)	
+  end
 
 	def home
 
@@ -78,5 +84,12 @@ class PagesController < ApplicationController
 	def my_ads
 		@tournaments = current_user.tournaments.paginate(:page => params[:page], :per_page => 5)
 	end
+
+
+private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_tournament
+    @tournament = Tournament.find(params[:id])
+  end
 
 end

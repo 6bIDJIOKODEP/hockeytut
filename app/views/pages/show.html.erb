@@ -1,0 +1,4 @@
+<p style="font-weight: bold; "><%= @tournament.category %></p>
+<p><%= @tournament.name %></p>
+<p><%= @tournament.start_date.strftime('%d %B %Y') %> - <%= @tournament.end_date.strftime('%d %B %Y') %></p>
+<p style="margin-left: -10px; padding-bottom: -10px"><%= link_to 'More info ->', tournament_path(@tournament), class: "btn", target: "_blank"  %></p>
