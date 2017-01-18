@@ -76,7 +76,7 @@ a:focus {
 input:focus {
 	text-decoration:none;
 	outline: none;
-	color:#131313;
+	color:#e3e3e3;
 }
 
 img {
@@ -160,7 +160,15 @@ input:focus, textarea:focus, select:focus, .form-control:focus {
 	height:44px;
 	color:#000;
 }
-
+.user-account .form-control {
+	border-bottom: 1px solid #e3e3e3;
+	border-top: transparent;
+	border-right: transparent;
+	border-left: transparent;
+	border-radius: 0px;
+	color: #e3e3e3;
+	font-size: 14px;
+}
 textarea {
 	resize:none;
 }
@@ -2390,13 +2398,13 @@ input[type=checkbox]:checked + label:before {
 }
 
 .user-account {
-	background-color: transparent;
+	background-color: rgba(19,19,19,0.8);
 	border-radius: 4px;
 	padding: 40px 50px;
 }
 
 .user-account h2 {
-	color: #00a651;
+	color: #fff;
 	font-weight: 700;
 	margin-bottom: 55px;
 }
@@ -2405,6 +2413,7 @@ input[type=checkbox]:checked + label:before {
 	height: 44px;
 	margin-bottom: 30px;
 	font-size: 16px;
+	background-color: transparent;
 }
 
 .user-account .btn {
