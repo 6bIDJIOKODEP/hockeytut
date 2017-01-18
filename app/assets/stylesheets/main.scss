@@ -2474,7 +2474,11 @@ input[type=checkbox]:checked + label:before {
 	margin-top:25px;
 	background-color:#0688fa;
 }
-
+.user-page {
+	background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+}
 .user-page .btn-primary:hover {
 	background-color:#00a651;
 }
