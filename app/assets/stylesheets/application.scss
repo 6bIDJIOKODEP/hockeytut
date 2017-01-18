@@ -16,6 +16,55 @@
  *= require_tree .
  *= require_self
  */
+ .btn-reg {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  font-family: 'Ubuntu';
+  color: #131313;
+  font-size: 16px;
+  background: #fff;
+  padding: 12px 20px 12px 20px;
+  text-decoration: none;
+  width: 100%;
+  display: block;
+  -webkit-transition: all ease-in-out 0.2s;
+  -moz-transition: all ease-in-out 0.2s;
+  -ms-transition: all ease-in-out 0.2s;
+  -o-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+}
+
+.btn-reg:hover {
+  color: #131313;
+  background: #f5f5f5;
+  text-decoration: none;
+}
+ .btn-sign {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  font-family: 'Ubuntu';
+  color: #ffffff;
+  font-size: 16px;
+  background: #1966ff;
+  padding: 12px 20px 12px 20px;
+  text-decoration: none;
+  width: 100%;
+  display: block;
+  -webkit-transition: all ease-in-out 0.2s;
+  -moz-transition: all ease-in-out 0.2s;
+  -ms-transition: all ease-in-out 0.2s;
+  -o-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+  border: 1px solid #1966ff;
+}
+
+.btn-sign:hover {
+  background: #0846c7;
+  border: 1px solid #0846c7;
+  text-decoration: none;
+}
 .searchButton {
   -moz-box-shadow:inset 0px 1px 0px 0px #29bbff;
   -webkit-box-shadow:inset 0px 1px 0px 0px #29bbff;
@@ -58,12 +107,14 @@
 }
 
 .m-t-3 {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 .social-widget {
   padding: 50px 0px;
 }
-
+.terms-accept {
+  color: #e3e3e3;
+}
 .hButton {
   -moz-box-shadow:inset 0px 1px 0px 0px #3d494f;
   -webkit-box-shadow:inset 0px 1px 0px 0px #3d494f;

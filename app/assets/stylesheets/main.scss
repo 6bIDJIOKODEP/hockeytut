@@ -76,7 +76,7 @@ a:focus {
 input:focus {
 	text-decoration:none;
 	outline: none;
-	color:#e3e3e3;
+	color:#333;
 }
 
 img {
@@ -2400,7 +2400,7 @@ input[type=checkbox]:checked + label:before {
 .user-account {
 	background-color: rgba(19,19,19,0.8);
 	border-radius: 4px;
-	padding: 40px 50px;
+	padding: 20px 20px;
 }
 
 .user-account h2 {
@@ -2431,11 +2431,14 @@ input[type=checkbox]:checked + label:before {
 }
 
 .user-account .checkbox label, .forgot-password a{
-	color:#b9b9b9;
+	color:#fff;
 }
 
 .user-account .checkbox label:hover, .forgot-password a:hover {
 	color:#00a651;
+}
+.forgot-password a:hover {
+	text-decoration: underline;
 }
 .user-account .user-option {
 	overflow:hidden;
