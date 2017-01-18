@@ -13,7 +13,7 @@
             <%= devise_error_messages! %>
 
             <div class="form-group">
-              <%= f.text_field :first_name, class: "form-control", autocomplete: "off", placeholder: "First Name" %>
+              <%= f.text_field :first_name, class: "form-control", autofocus: true, autocomplete: "off", placeholder: "First Name" %>
             </div>
 
             <div class="form-group">
@@ -21,7 +21,7 @@
             </div>
 
             <div class="form-group">
-              <%= f.email_field :email, class: "form-control", autofocus: true, placeholder: "Email" %>
+              <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
             </div>
 
 

@@ -5,9 +5,6 @@ class PagesController < ApplicationController
 
   def search_camp
     
-
-
-
   	@search = Tournament.where("tournament_type = 'camp'").search(params[:q])
   	@tournaments = @search.result
 		@hash = Gmaps4rails.build_markers(@tournaments) do |tournament, marker|
@@ -21,8 +18,6 @@ class PagesController < ApplicationController
 		@categories = ["Players", "Goalkeepers", "All"]
 		
   end
-
-
 
 
 

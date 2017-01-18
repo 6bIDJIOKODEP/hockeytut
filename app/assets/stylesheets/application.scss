@@ -16,6 +16,10 @@
  *= require_tree .
  *= require_self
  */
+ .user-page .user-account {
+  width: 280px;
+  margin: auto;
+ }
  .btn-reg {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -33,6 +37,8 @@
   -ms-transition: all ease-in-out 0.2s;
   -o-transition: all ease-in-out 0.2s;
   transition: all ease-in-out 0.2s;
+  width: 280px;
+  margin: auto;
 }
 
 .btn-reg:hover {
@@ -58,6 +64,8 @@
   -o-transition: all ease-in-out 0.2s;
   transition: all ease-in-out 0.2s;
   border: 1px solid #1966ff;
+  width: 280px;
+  margin: auto;
 }
 
 .btn-sign:hover {
@@ -114,6 +122,8 @@
 }
 .terms-accept {
   color: #e3e3e3;
+  width: 280px;
+  margin: auto;
 }
 .hButton {
   -moz-box-shadow:inset 0px 1px 0px 0px #3d494f;
