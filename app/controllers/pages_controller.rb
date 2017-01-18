@@ -13,6 +13,11 @@ class PagesController < ApplicationController
 		  marker.lng tournament.longitude
 		  marker.json({:id => tournament.id})
 			marker.infowindow render_to_string(:action => 'show_camp', :layout => false)
+      marker.picture({
+          :url => ActionController::Base.helpers.asset_path("marker2.png"),
+          :width => 24,
+          :height => 24
+          })
 		end
 
 		@categories = ["Players", "Goalkeepers", "All"]
@@ -31,6 +36,11 @@ class PagesController < ApplicationController
 		  marker.lng tournament.longitude
 		  marker.json({:id => tournament.id})
 			marker.infowindow render_to_string(:action => 'show', :layout => false)
+      marker.picture({
+                :url => ActionController::Base.helpers.asset_path("marker1.png"),
+                :width => 24,
+                :height => 24
+                })
 		end
 
 
