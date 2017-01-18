@@ -14,9 +14,9 @@ class PagesController < ApplicationController
 		  marker.json({:id => tournament.id})
 			marker.infowindow render_to_string(:action => 'show_camp', :layout => false)
       marker.picture({
-          :url => ActionController::Base.helpers.asset_path("marker2.png"),
-          :width => 24,
-          :height => 24
+          :url => ActionController::Base.helpers.asset_path("marker1.png"),
+          :width => 74,
+          :height => 74
           })
 		end
 
@@ -38,8 +38,8 @@ class PagesController < ApplicationController
 			marker.infowindow render_to_string(:action => 'show', :layout => false)
       marker.picture({
                 :url => ActionController::Base.helpers.asset_path("marker1.png"),
-                :width => 24,
-                :height => 24
+                :width => 74,
+                :height => 74
                 })
 		end
 
