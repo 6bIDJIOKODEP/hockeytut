@@ -564,6 +564,7 @@ textarea {
 }
 
 .category-search {
+	box-shadow: 0 2px 4px rgba(0,0,0,0.12), 1px 1px 4px rgba(0,0,0,0.24);
 	background-color: #fff;
 	display: inline-block;
 	padding:40px 0px 10px;
@@ -2334,7 +2335,15 @@ input[type=checkbox]:checked + label:before {
 	color:#00a651;
 
 }
-
+.section.quick-rules {
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.24);
+}
+.section.postdetails {
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.24);
+}
+.section.seller-info {
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.24);
+}
 
 .quick-rules .lead {
 	font-weight: 300;
@@ -2597,11 +2606,14 @@ input[type=checkbox]:checked + label:before {
   /* ==========================================================================
  	Ad Profile
  ========================================================================== */
-
+.profile.section {
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.24);
+}
 .gogo-profile {
 	background-color: #fff;
 	overflow: hidden;
 	padding:0;
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.24);
 }
 
 .user-profile {
@@ -2774,6 +2786,7 @@ input[type=checkbox]:checked + label:before {
 .delete-account {
 	background-color: #fff;
 	border-radius: 4px;
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.24);
 }
 
 .delete-account h2,
@@ -2826,6 +2839,7 @@ input[type=checkbox]:checked + label:before {
 	background-color: #fff;
 	overflow:hidden;
 	border-radius: 4px;
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.24);
 }
 
 .about-us h3 {
@@ -3036,6 +3050,7 @@ input[type=checkbox]:checked + label:before {
     overflow: hidden;
     padding: 35px;
     border-radius: 4px;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.24);
 }
 
 .contact-info h2 {
@@ -3080,13 +3095,24 @@ input[type=checkbox]:checked + label:before {
 .contact-info .social i.fa-google-plus {
 	color: #ed1c24;
 }
-
+.section.slider {
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.24);
+}
+.description-info .short-info {
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.24);
+}
+.description-info .description {
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.24);
+}
 .feedback {
     background-color: #fff;
     color: #000;   
     overflow: hidden;
     padding:35px;
     border-radius: 4px;
+}
+.feedback.ab {
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.24);
 }
 
 .feedback h2 {

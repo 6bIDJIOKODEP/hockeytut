@@ -25,12 +25,16 @@
 					<h1>Find Tournaments</h1>
 					<div class="contact-info">
 
+
 						<%= search_form_for @search, url: search_path do |f| %> 
 
 
 								<h3>Category</h3>
 								
 								<%= f.select(:category_in, @categories.map {|c| [c, c ]}, { prompt: 'Select..' }, { class: 'search-control' } ) %>
+
+
+
 
 
 								<h3>Start date</h3>
