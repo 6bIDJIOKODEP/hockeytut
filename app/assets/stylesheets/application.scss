@@ -17,7 +17,50 @@
  *= require_tree .
  *= require_self
  */
+ .chosen-search {
+  display: none;
+ }
+ .chosen-container-single .chosen-single div b {
+  background: no-repeat 2px 6px;
+ }
+ .chosen-container-active.chosen-with-drop .chosen-single div b {
+  margin: 4px 1px;
+ }
+ .chosen-container .chosen-results {
+  padding: 0px;
+ }
+ .chosen-container .chosen-results li.active-result {
+  padding: 10px;
+ }
+ .chosen-container-single .chosen-single {
+  background: #fff;
+  border-radius: 3px;
+  height: 36px;
+ }
+ .chosen-container-active.chosen-with-drop .chosen-single {
+  background: #fff;
+ }
+ .chosen-container-single .chosen-single span {
+  padding: 5px;
+  font-size: 14px;
+ }
 
+.chosen-container .chosen-results li.highlighted {
+  background-color: #0688fa;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #0688fa), color-stop(90%, #0688fa));
+  background-image: -webkit-linear-gradient(#0688fa 20%, #0688fa 90%);
+  background-image: -moz-linear-gradient(#0688fa 20%, #0688fa 90%);
+  background-image: -o-linear-gradient(#0688fa 20%, #0688fa 90%);
+  background-image: linear-gradient(#0688fa 20%, #0688fa 90%);
+  color: #fff;
+}
+.chosen-container .chosen-results li {
+  -webkit-transition: background-color ease-in-out 0.42s;
+  -moz-transition: background-color ease-in-out 0.4s;
+  -ms-transition: background-color ease-in-out 0.4s;
+  -o-transition: background-color ease-in-out 0.4s;
+  transition: background-color ease-in-out 0.4s;
+}
 .drop-menu {
   width: 300px;
   display: inline-block;
