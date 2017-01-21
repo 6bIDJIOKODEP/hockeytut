@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.3.1'
 
+gem 'chosen-rails'
+
 gem 'devise', '~> 4.2'
 
 gem 'sendgrid', '~> 1.2'
