@@ -31,17 +31,17 @@
 
 								<h3>Category</h3>
 								
-								<%= f.select(:category_in, @categories.map {|c| [c, c ]}, { prompt: 'Select..' }, { class: 'chosen-select' } ) %>
+								<%= f.select(:category_in, @categories.map {|c| [c, c ]}, { prompt: 'Select..' }, {class: "chosen-select", style: "width: 50%;"} ) %>
 
 
 
 
 
 								<h3>Start date</h3>
-								<%= f.date_select :start_date_gteq, {:order => [:day, :month, :year], :start_year => 2016, :end_year => 2029, :selected => Date.today.year - 1 }, class: "date-home-control"  %>
+								<%= f.date_select :start_date_gteq, {:order => [:day, :month, :year], :start_year => 2016, :end_year => 2029, :selected => Date.today.year - 1 }, {class: "chosen-select-date", style: "width: 32%;"}  %>
 
 								<h3>End date</h3>
-								<%= f.date_select :end_date_lteq, {:order => [:day, :month, :year], :start_year => 2016, :end_year => 2029, :selected => Date.today.year + 10 }, class: "date-home-control"  %>
+								<%= f.date_select :end_date_lteq, {:order => [:day, :month, :year], :start_year => 2016, :end_year => 2029, :selected => Date.today.year + 10 }, {class: "chosen-select-date", style: "width: 32%;"}  %>
 
 
 
@@ -72,7 +72,7 @@
 				<!-- VK Widget -->
 				<div id="vk_groups"></div>
 				<script type="text/javascript">
-				VK.Widgets.Group("vk_groups", {mode: 3, width: "350"}, 124271005);
+				VK.Widgets.Group("vk_groups", {mode: 3, width: "290"}, 124271005);
 				</script>
 			</div>
 
@@ -83,7 +83,7 @@
 
 				<div class="fb-page"
 				  data-href="https://www.facebook.com/Hockeytutcom-721255448055808" 
-				  data-width="350"
+				  data-width="290"
 				  data-hide-cover="false"
 				  data-show-facepile="true"></div>
 
