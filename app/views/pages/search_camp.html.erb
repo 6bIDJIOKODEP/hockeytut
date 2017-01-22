@@ -24,11 +24,21 @@
 
                       <% if params['q']['category_camp_in'] && (params['q']['category_camp_in'].include? s) %>
 
-                        <li class="category-item"><label for="q_category_camp_in_<%= s.downcase %>" class="checked"><%= s %><%= f.check_box :category_camp_in, {multiple: true}, s, nil %></label></li>
+                        <li class="category-item">
+                          <label for="q_category_camp_in_<%= s.downcase %>" class="checked control control--checkbox">
+                            <%= s %><%= f.check_box :category_camp_in, {multiple: true}, s, nil %>
+                            <div class="control__indicator"></div>
+                          </label>
+                        </li>
 
                       <% else %>
 
-                        <li class="category-item"><label for="q_category_camp_in_<%= s.downcase %>"><%= s %><%= f.check_box :category_camp_in, {multiple: true}, s, nil %></label></li>
+                        <li class="category-item">
+                          <label for="q_category_camp_in_<%= s.downcase %>" class="control control--checkbox">
+                            <%= s %><%= f.check_box :category_camp_in, {multiple: true}, s, nil %>
+                            <div class="control__indicator"></div>
+                          </label>
+                        </li>
 
                       <% end %>
 
@@ -37,7 +47,12 @@
 
                 <% else %>
 
-                <li class="category-item"><label for="q_category_camp_in_<%= s.downcase %>"><%= s %><%= f.check_box :category_camp_in, {multiple: true}, s, nil %></label></li>
+                <li class="category-item">
+                  <label for="q_category_camp_in_<%= s.downcase %>" class="control control--checkbox">
+                    <%= s %><%= f.check_box :category_camp_in, {multiple: true}, s, nil %>
+                    <div class="control__indicator"></div>
+                  </label>
+                </li>
                   
 
                 <% end %>
