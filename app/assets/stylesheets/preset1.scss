@@ -139,13 +139,6 @@ a.verified i,
 	border: 1px solid #537395;
 }
 
-.adpost-details input[type="radio"] + label:before {
-	border: 2px solid #537395;
-}
-
-.adpost-details input[type="radio"]:checked + label:after {
-	border: 5px solid #537395;
-}
 
 .rating input[type="radio"] + label:before,
 .rating input[type="radio"]:checked + label:after {

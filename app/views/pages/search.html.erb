@@ -55,11 +55,11 @@
         <div class="container">
           <li class="col-md-6 p-b-3">
             <h5>Start date</h5>
-            <%= f.date_select :start_date_gteq, {:order => [:day, :month, :year], :start_year => 2016, :end_year => 2029, :selected => Date.today.year - 1 }, class: "date-control"  %>
+            <%= f.date_select :start_date_gteq, {:order => [:day, :month, :year], :start_year => 2016, :end_year => 2029, :selected => Date.today.year - 1 }, {class: "chosen-select-date", style: "width: 32%;"}  %>
           </li>
           <li class="col-md-6 p-b-3">
             <h5>End date</h5>
-            <%= f.date_select :end_date_lteq, {:order => [:day, :month, :year], :start_year => 2016, :end_year => 2029, :selected => Date.today.year + 10 }, class: "date-control"  %>
+            <%= f.date_select :end_date_lteq, {:order => [:day, :month, :year], :start_year => 2016, :end_year => 2029, :selected => Date.today.year + 10 }, {class: "chosen-select-date", style: "width: 32%;"}  %>
           </li>
         </div>
         <div class="container">

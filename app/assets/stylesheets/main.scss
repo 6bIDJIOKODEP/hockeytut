@@ -898,7 +898,6 @@ transform: scale(1.05) rotate(2deg);
 	margin: 18px 0;
 	min-height: 152px;
 	border-radius:2px;
-	max-height:152px;
 }
 
 .item-image-box, .item-info {
@@ -2138,31 +2137,36 @@ transform: scale(1.05) rotate(2deg);
 	color:#838383;
 	margin-bottom:0;
 }
-
 .adpost-details input[type="radio"] {
 	display:none;
 }
-
 .adpost-details input[type="radio"] + label:before,
 .adpost-details input[type="radio"] + label:after {
 	position:absolute;
 	top:5px;
 	left:0;
 	content:"";
-	width:14px;
-	height:14px;
+	width:16px;
+	height:16px;
 	border-radius:50%;
 	display:inline-block;
-	background-color:transparent;
+	background-color: #E6E6E6;
 }
 
 .adpost-details input[type="radio"] + label:before {
-	border: 2px solid #00a651;
+	border: 1px solid #E6E6E6;
+}
+.adpost-details input[type="radio"] + label:after:focus {
+	border: 3px solid #131313;
+}
+.adpost-details input[type="radio"]:checked + label:after {
+	border: 6px solid #2dabf9;
+	background-color: transparent;
 }
 
-.adpost-details input[type="radio"]:checked + label:after {
-	border: 5px solid #00a651;
-}
+
+
+
 input[type=checkbox]:checked + label:before {
     content: "\2022";
     color: #f3f3f3;
